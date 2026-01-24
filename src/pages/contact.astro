@@ -1,6 +1,5 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import { socialLinks } from '../data/social';
 ---
 
 <PageLayout
@@ -102,31 +101,6 @@ import { socialLinks } from '../data/social';
           Send Message
         </button>
       </form>
-    </section>
-
-    <!-- Social Links Section -->
-    <section class="max-w-2xl">
-      <h2 class="text-2xl font-semibold mb-6">Connect With Me</h2>
-
-      <p class="mb-6" style="color: var(--color-text-secondary);">
-        You can also find me on these platforms:
-      </p>
-
-      <div class="flex flex-wrap gap-4">
-        {socialLinks.map((link) => (
-          <a
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-6 py-3 border rounded-lg transition-all duration-200 no-underline font-medium"
-            style="background-color: var(--color-surface); border-color: var(--color-border); color: var(--color-text);"
-            onmouseenter="this.style.backgroundColor='var(--color-hover)'; this.style.boxShadow='var(--shadow-md)';"
-            onmouseleave="this.style.backgroundColor='var(--color-surface)'; this.style.boxShadow='none';"
-          >
-            {link.name}
-          </a>
-        ))}
-      </div>
     </section>
   </div>
 </PageLayout>
