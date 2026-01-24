@@ -72,12 +72,22 @@
     @apply underline;
   }
 
-  /* Animated underline for navigation and content links */
-  nav a, .prose a {
+  /* Simple underline for navigation links on hover */
+  nav a {
     text-decoration: none;
   }
 
-  nav a::after, .prose a::after {
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Animated underline for prose/content links only */
+  .prose a {
+    text-decoration: none;
+    position: relative;
+  }
+
+  .prose a::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -88,7 +98,7 @@
     transition: width 300ms ease;
   }
 
-  nav a:hover::after, .prose a:hover::after {
+  .prose a:hover::after {
     width: 100%;
   }
 }
