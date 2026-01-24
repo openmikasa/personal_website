@@ -9,13 +9,13 @@ import { socialLinks } from '../data/social';
 >
   <div class="fade-in">
     <!-- Hero Section -->
-    <section class="text-center pt-8 mb-16">
+    <section class="pt-8 mb-16 max-w-2xl">
       <h1 class="text-5xl md:text-6xl font-bold mb-6">
         Hi! I'm Ramy Ghorayeb
       </h1>
 
       <!-- Social Links -->
-      <div class="flex justify-center gap-6 text-sm">
+      <div class="flex gap-6 text-sm">
         {socialLinks.map((link) => (
           <a
             href={link.url}
@@ -33,7 +33,7 @@ import { socialLinks } from '../data/social';
     </section>
 
     <!-- About Me Section -->
-    <section class="max-w-3xl mx-auto mb-24">
+    <section class="max-w-2xl mb-24">
       <div class="prose prose-lg max-w-none">
         <ul class="space-y-6 text-lg" style="color: var(--color-text-secondary);">
           <li class="flex items-start">
