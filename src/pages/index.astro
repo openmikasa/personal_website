@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { socialLinks } from '../data/social';
 ---
 
 <PageLayout
@@ -8,14 +9,27 @@ import PageLayout from '../layouts/PageLayout.astro';
 >
   <div class="fade-in">
     <!-- Hero Section -->
-    <section class="text-center pt-24 md:pt-32">
-      <h1 class="text-5xl md:text-6xl font-bold mb-8">
+    <section class="text-center pt-8 mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
         Hi! I'm Ramy Ghorayeb
       </h1>
 
-      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto" style="color: var(--color-text-secondary);">
-        I'm a Product Manager currently living between New York & Paris.
-      </p>
+      <!-- Social Links -->
+      <div class="flex justify-center gap-6 text-sm">
+        {socialLinks.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="transition-colors duration-200"
+            style="color: var(--color-text);"
+            onmouseenter="this.style.color='var(--color-link)';"
+            onmouseleave="this.style.color='var(--color-text)';"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
     </section>
 
     <!-- About Me Section -->
@@ -24,7 +38,7 @@ import PageLayout from '../layouts/PageLayout.astro';
         <ul class="space-y-6 text-lg" style="color: var(--color-text-secondary);">
           <li class="flex items-start">
             <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
-            <span><strong>Hometown:</strong> Paris, France</span>
+            <span><strong>City:</strong> New York & Paris</span>
           </li>
           <li class="flex items-start">
             <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
@@ -56,35 +70,35 @@ import PageLayout from '../layouts/PageLayout.astro';
               <strong>Random Things I Can Recommend:</strong>
               <ul class="ml-6 mt-2 space-y-2">
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>Food:</strong> Taouk + hummus + fattoush</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>Fiction:</strong> Liu Cixin - The Immortal Death</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>Non-Fiction:</strong> Chuck Palahniuk - Stranger Than Fiction: True Stories</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>Self Development:</strong> R. Moore & D. Gillette - King, Warrior, Magician, Lover</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>Biography:</strong> Cizia Zyke - Oro</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>Music Album:</strong> Steven Wilson - Insurgentes</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>Movie:</strong> Mr Fantastic (not a superhero movie)</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="mr-2">-</span>
+                  <span class="mr-2">•</span>
                   <span><strong>TV Show:</strong> The Leftovers</span>
                 </li>
               </ul>

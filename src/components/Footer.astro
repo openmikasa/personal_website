@@ -1,26 +1,8 @@
 ---
-import { socialLinks } from '../data/social';
-
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="mt-auto" style="border-top: 1px solid var(--color-border); background-color: var(--color-bg);">
   <div class="max-w-6xl mx-auto px-6 py-8">
-    <!-- Social Links -->
-    <div class="flex justify-center gap-6">
-      {socialLinks.map((link) => (
-        <a
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm transition-colors duration-200 no-underline"
-          style="color: var(--color-text);"
-          onmouseenter="this.style.color='var(--color-link)';"
-          onmouseleave="this.style.color='var(--color-text)';"
-        >
-          {link.name}
-        </a>
-      ))}
-    </div>
   </div>
 </footer>
