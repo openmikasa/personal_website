@@ -4,7 +4,7 @@ import { socialLinks } from '../data/social';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[#E9E9E7] bg-[#FAFAFA] mt-auto">
+<footer class="mt-auto" style="border-top: 1px solid var(--color-border); background-color: var(--color-bg);">
   <div class="max-w-6xl mx-auto px-6 py-8">
     <!-- Social Links -->
     <div class="flex justify-center gap-6">
@@ -13,7 +13,10 @@ const currentYear = new Date().getFullYear();
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm text-[#37352F] hover:text-[#0066CC] transition-colors duration-200 no-underline"
+          class="text-sm transition-colors duration-200 no-underline"
+          style="color: var(--color-text);"
+          onmouseenter="this.style.color='var(--color-link)';"
+          onmouseleave="this.style.color='var(--color-text)';"
         >
           {link.name}
         </a>

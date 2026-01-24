@@ -8,50 +8,50 @@ import PageLayout from '../layouts/PageLayout.astro';
 >
   <div class="fade-in">
     <!-- Hero Section -->
-    <section class="text-center py-16 md:py-24">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+    <section class="text-center py-24 md:py-32">
+      <h1 class="text-5xl md:text-6xl font-bold mb-8">
         Hi! I'm Ramy Ghorayeb
       </h1>
 
-      <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto">
+      <p class="text-xl md:text-2xl mb-16 max-w-2xl mx-auto" style="color: var(--color-text-secondary);">
         I'm a Product Manager currently living between New York & Paris.
       </p>
     </section>
 
     <!-- About Me Section -->
-    <section class="max-w-3xl mx-auto mb-16">
+    <section class="max-w-3xl mx-auto mb-24">
       <div class="prose prose-lg max-w-none">
-        <ul class="space-y-4 text-lg text-gray-700">
+        <ul class="space-y-6 text-lg" style="color: var(--color-text-secondary);">
           <li class="flex items-start">
-            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
             <span><strong>Hometown:</strong> Paris, France</span>
           </li>
           <li class="flex items-start">
-            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
             <span><strong>Languages:</strong> English, French, Arabic, Spanish</span>
           </li>
           <li class="flex items-start">
-            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
             <span><strong>Role:</strong> Product Manager - AI/ML & Consumer Products @Uber</span>
           </li>
           <li class="flex items-start">
-            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
             <span><strong>Last Education:</strong> Machine Learning & Entrepreneurship @Ecole Polytechnique, France</span>
           </li>
           <li class="flex items-start">
-            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
             <div>
               <strong>Topics I Love:</strong> Geopolitics, French Politics, Middle Eastern History, Economy, Startups, AI, Biohacking, Personal Finance, Productivity, Relationships
             </div>
           </li>
           <li class="flex items-start">
-            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
             <div>
               <strong>Topics I Am Discovering:</strong> Religious Archeology, Theology, Jungian Psychology, Camusian Philosophy
             </div>
           </li>
           <li class="flex items-start">
-            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span class="mr-3" style="color: var(--color-warm-accent);">•</span>
             <div>
               <strong>Random Things I Can Recommend:</strong>
               <ul class="ml-6 mt-2 space-y-2">
@@ -98,7 +98,10 @@ import PageLayout from '../layouts/PageLayout.astro';
     <section class="text-center py-8">
       <a
         href="/interests"
-        class="inline-block bg-black text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-all duration-200 hover:shadow-lg no-underline"
+        class="inline-block text-white px-8 py-3 rounded-lg font-medium transition-all duration-200 no-underline"
+        style="background-color: var(--color-accent); box-shadow: var(--shadow-sm);"
+        onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)';"
+        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)';"
       >
         Explore My Interests
       </a>
