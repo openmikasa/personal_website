@@ -15,7 +15,7 @@ export default {
         'notion-warm-accent': '#A68A6F',
       },
       fontFamily: {
-        sans: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        sans: ['Urbanist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         mono: ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'],
       },
     },
