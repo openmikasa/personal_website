@@ -7,7 +7,7 @@ const currentYear = new Date().getFullYear();
 <footer class="border-t border-[#E9E9E7] bg-[#FAFAFA] mt-auto">
   <div class="max-w-6xl mx-auto px-6 py-8">
     <!-- Social Links -->
-    <div class="flex justify-center gap-6 mb-6">
+    <div class="flex justify-center gap-6">
       {socialLinks.map((link) => (
         <a
           href={link.url}
@@ -18,13 +18,6 @@ const currentYear = new Date().getFullYear();
           {link.name}
         </a>
       ))}
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center">
-      <p class="text-sm text-[#9B9A97]">
-        &copy; {currentYear} Your Name. All rights reserved.
-      </p>
     </div>
   </div>
 </footer>

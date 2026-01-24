@@ -55,6 +55,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ---
 
 ## 🔄 Updating Progress
+When a task is given to you, make sure you formalize a step-by-step execution plan and use chain of thoughts if needed. Then make sure to parallelize the work with multiple agents when possible and relevant.
+
 When a task is completed, evaluate if any new "permanent" knowledge was gained. 
 Update `claude.md` if:
 1. We solved a recurring bug specific to this codebase.
@@ -65,3 +67,4 @@ Update `claude.md` if:
 **Process:**
 - Propose the change first: "I've noticed we do [X] frequently. Should I add this to claude.md?"
 - Use a structured format: `[Category] Description | Rationale`.
+- If you want to udpate claude.md: Make sure your change is not redundant and whether the file instructions can be compressed without any loss of information or instructions. You will do this check only based on the new information you want to add, so you don't review the same things multiple times.

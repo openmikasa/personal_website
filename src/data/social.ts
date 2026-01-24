@@ -5,8 +5,6 @@ export interface SocialLink {
 }
 
 export const socialLinks: SocialLink[] = [
-  { name: 'GitHub', url: 'https://github.com/yourusername' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername' },
-  { name: 'Twitter', url: 'https://twitter.com/yourusername' },
-  { name: 'Email', url: 'mailto:your.email@example.com' },
+  { name: 'LinkedIn', url: 'https://linkedin.com/in/ramyg' },
+  { name: 'GitHub', url: 'https://github.com/openmikasa' },
 ];

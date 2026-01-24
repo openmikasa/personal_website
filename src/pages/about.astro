@@ -1,6 +1,5 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import { skills } from '../data/skills';
 ---
 
 <PageLayout
@@ -11,64 +10,80 @@ import { skills } from '../data/skills';
     <!-- Page Title -->
     <h1 class="text-4xl md:text-5xl font-bold mb-12">About Me</h1>
 
-    <!-- Biography Section -->
-    <section class="mb-16">
-      <div class="prose prose-lg max-w-none">
-        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-          I'm a passionate developer with a love for building meaningful digital experiences.
-          My journey into tech started with curiosity and has evolved into a career focused on
-          creating intuitive, user-centered solutions. I believe that great software combines
-          technical excellence with thoughtful design.
-        </p>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-6">
-          Over the years, I've worked on a diverse range of projects, from web applications
-          to creative experiments. Each project has taught me something new and reinforced my
-          commitment to continuous learning. I approach every challenge with an open mind and
-          a dedication to crafting solutions that truly work.
-        </p>
-
-        <p class="text-lg text-gray-700 leading-relaxed">
-          When I'm not coding, you'll find me exploring new technologies, contributing to
-          open-source projects, or diving into creative pursuits. I'm always excited to
-          collaborate on projects that push boundaries and make a positive impact.
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-semibold mb-8">Skills</h2>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        {skills.map((skillCategory) => (
-          <div class="bg-white border border-[var(--color-border)] rounded-lg p-6 hover:shadow-md transition-shadow duration-200">
-            <h3 class="text-xl font-semibold mb-4 text-[var(--color-text)]">
-              {skillCategory.category}
-            </h3>
-            <ul class="space-y-2">
-              {skillCategory.items.map((skill) => (
-                <li class="text-gray-700 flex items-start">
-                  <span class="mr-2 text-[var(--color-accent)]">•</span>
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Interests Section -->
+    <!-- Information Section -->
     <section>
-      <h2 class="text-3xl font-semibold mb-6">Interests</h2>
-
-      <p class="text-lg text-gray-700 leading-relaxed">
-        Beyond my professional work, I'm passionate about design thinking, emerging technologies,
-        and the intersection of art and code. I enjoy exploring generative art, learning about
-        human-computer interaction, and staying up-to-date with the latest developments in web
-        technologies and creative coding.
-      </p>
+      <div class="prose prose-lg max-w-none">
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start">
+            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span><strong>Hometown:</strong> Paris, France</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span><strong>Languages:</strong> English, French, Arabic, Spanish</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span><strong>Last Education:</strong> Machine Learning & Entrepreneurship @Ecole Polytechnique, France</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <span><strong>Role:</strong> Product Manager - AI/ML & Consumer Products @Uber</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <div>
+              <strong>Topics I Love:</strong> Geopolitics, French Politics, Middle Eastern History, Economy, Startups, AI, Biohacking, Personal Finance, Productivity, Relationships
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <div>
+              <strong>Topics I Am Discovering:</strong> Religious Archeology, Theology, Jungian Psychology, Camusian Philosophy
+            </div>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3 text-[var(--color-accent)]">•</span>
+            <div>
+              <strong>Random Things I Can Recommend:</strong>
+              <ul class="ml-6 mt-2 space-y-2">
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>Food:</strong> Taouk + hummus + fattoush</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>Fiction:</strong> Liu Cixin - The Immortal Death</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>Non-Fiction:</strong> Chuck Palahniuk - Stranger Than Fiction: True Stories</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>Self Development:</strong> R. Moore & D. Gillette - King, Warrior, Magician, Lover</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>Biography:</strong> Cizia Zyke - Oro</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>Music Album:</strong> Steven Wilson - Insurgentes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>Movie:</strong> Mr Fantastic (not a superhero movie)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="mr-2">-</span>
+                  <span><strong>TV Show:</strong> The Leftovers</span>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
   </div>
 </PageLayout>
