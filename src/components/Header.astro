@@ -1,0 +1,80 @@
+---
+import { navigationItems } from '../data/navigation';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-[#FAFAFA] border-b border-[#E9E9E7]">
+  <nav class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo/Brand -->
+      <a href="/" class="text-xl font-semibold text-[#37352F] no-underline hover:no-underline">
+        Your Name
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-8">
+        {navigationItems.map((item) => {
+          const isActive = currentPath === item.href ||
+            (item.href !== '/' && currentPath.startsWith(item.href));
+
+          return (
+            <li>
+              <a
+                href={item.href}
+                class={`text-sm font-medium transition-colors duration-200 no-underline hover:text-[#0066CC] ${
+                  isActive ? 'text-[#0066CC]' : 'text-[#37352F]'
+                }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      <!-- Mobile Navigation Toggle -->
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden p-2 text-[#37352F] hover:bg-[#F7F6F3] rounded-md transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <ul id="mobile-menu" class="hidden md:hidden flex-col gap-4 mt-4 pb-2">
+      {navigationItems.map((item) => {
+        const isActive = currentPath === item.href ||
+          (item.href !== '/' && currentPath.startsWith(item.href));
+
+        return (
+          <li>
+            <a
+              href={item.href}
+              class={`block text-sm font-medium transition-colors duration-200 no-underline hover:text-[#0066CC] ${
+                isActive ? 'text-[#0066CC]' : 'text-[#37352F]'
+              }`}
+            >
+              {item.name}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    menu?.classList.toggle('flex');
+  });
+</script>

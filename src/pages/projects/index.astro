@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+// Query all projects and sort by order field (ascending)
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+// Separate featured projects for potential special treatment
+const featuredProjects = sortedProjects.filter(project => project.data.featured);
+const regularProjects = sortedProjects.filter(project => !project.data.featured);
+---
+
+<PageLayout
+  title="Projects"
+  description="A collection of my work, featuring web applications, design systems, and full-stack projects built with modern technologies."
+>
+  <!-- Page Header -->
+  <header class="mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+      Projects
+    </h1>
+    <p class="text-lg text-gray-600 max-w-2xl">
+      A collection of my work, featuring web applications, design systems, and full-stack projects built with modern technologies.
+    </p>
+  </header>
+
+  <!-- Featured Projects Section -->
+  {featuredProjects.length > 0 && (
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-900">
+        Featured Projects
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredProjects.map((project) => (
+          <div class="relative">
+            <ProjectCard project={project} />
+            {/* Featured badge */}
+            <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg">
+              Featured
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- All Projects Section -->
+  <section>
+    {featuredProjects.length > 0 && (
+      <h2 class="text-2xl font-semibold mb-6 text-gray-900">
+        All Projects
+      </h2>
+    )}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedProjects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Empty State -->
+  {sortedProjects.length === 0 && (
+    <div class="text-center py-20">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
+        <svg
+          class="w-8 h-8 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          ></path>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">
+        No projects yet
+      </h3>
+      <p class="text-gray-600">
+        Check back soon for new projects.
+      </p>
+    </div>
+  )}
+</PageLayout>
