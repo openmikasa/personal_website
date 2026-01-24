@@ -4,8 +4,8 @@ export interface NavigationItem {
 }
 
 export const navigationItems: NavigationItem[] = [
-  { name: 'Home', href: '/' },
-  { name: 'Work', href: '/work' },
-  { name: 'Interests', href: '/interests' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'home', href: '/' },
+  { name: 'work', href: '/work' },
+  { name: 'interests', href: '/interests' },
+  { name: 'contact', href: '/contact' },
 ];
