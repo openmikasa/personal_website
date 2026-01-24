@@ -6,12 +6,7 @@ const currentPath = Astro.url.pathname;
 
 <header id="site-header" class="sticky top-0 z-50 transition-all duration-300" style="background-color: var(--color-bg); border-bottom: 1px solid var(--color-border);">
   <nav class="max-w-6xl mx-auto px-6 py-6">
-    <div class="flex items-center justify-between">
-      <!-- Logo/Brand -->
-      <a href="/" class="text-xl font-semibold no-underline hover:no-underline" style="color: var(--color-text);">
-        RG
-      </a>
-
+    <div class="flex items-center justify-end">
       <!-- Desktop Navigation -->
       <ul class="hidden md:flex items-center gap-8">
         {navigationItems.map((item) => {
