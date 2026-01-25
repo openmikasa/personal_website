@@ -20,12 +20,12 @@ npm install
 if you have a private secrets repository:
 
 ```bash
-# in a separate directory, clone your private secrets repo
-cd ~/
+# clone your private secrets repo next to the main project
+cd /Users/ramyg/Desktop/Vibes/
 git clone https://github.com/openmikasa/personal-website-secrets.git
 
-# copy .env files to your project
-cp ~/personal-website-secrets/.env ~/personal_website/.env
+# copy .env files to your project (if you created one)
+cp /Users/ramyg/Desktop/Vibes/personal_website_secrets/.env /Users/ramyg/Desktop/Vibes/personal_website/.env
 ```
 
 **or** create `.env` file manually with:
@@ -65,7 +65,7 @@ these files are NOT in the public repo but may be needed:
 
 - **formspree form id**: `mwvljpgj`
   - location: `src/pages/contact.astro` (line 21)
-  - also stored in: [password manager / private repo]
+  - also stored in: https://github.com/openmikasa/personal-website-secrets
 - **vercel deployment**: auto-deploys from main branch
 - **domain**: [add your domain if you have one]
 
