@@ -9,6 +9,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 * **Tech Stack:** Astro 5.x, Tailwind CSS 3.x, TypeScript (strict mode)
 * **Architecture:** Static site generation with file-based content management (Markdown + Astro Content Collections)
 
+## 📦 Setup & Recovery
+* **New Machine Setup:** See `SETUP.md` for complete instructions on reconstructing the project on a new computer
+* **Sensitive Data:**
+  - Contact form uses Formspree (ID: `mwvljpgj` in `src/pages/contact.astro`)
+  - No `.env` files currently needed (all config in source)
+  - Backup strategy: [Password Manager / Private Repo / Vercel Dashboard]
+* **Deployment:** Auto-deploys from `main` branch to Vercel
+
 ---
 
 ## 🛠️ Mandatory Tooling (MCP)
