@@ -23,14 +23,14 @@
     --color-surface: #FFFFFF;
     --color-hover: #F5F4F1;
 
-    /* Text */
-    --color-text: #2D2A26;
+    /* Text - Warm charcoal instead of pure black */
+    --color-text: #3A3632;
     --color-text-secondary: #5E5A54;
     --color-text-muted: #8B8680;
 
-    /* Interactive */
-    --color-accent: #1A1A1A;
-    --color-link: #1A1A1A;
+    /* Interactive - Softer dark brown instead of black */
+    --color-accent: #2D2A26;
+    --color-link: #2D2A26;
 
     /* Borders */
     --color-border: #E8E6E1;
