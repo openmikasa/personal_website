@@ -39,7 +39,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
       </div>
 
       <!-- Tooltip -->
-      <div id="country-tooltip" class="hidden fixed px-3 py-2 rounded shadow-lg pointer-events-none z-50" style="background-color: var(--color-text); color: var(--color-bg);"></div>
+      <div id="country-tooltip" class="hidden fixed px-3 py-2 rounded shadow-lg pointer-events-none z-50"></div>
     </section>
 
     <!-- Countries List -->
@@ -193,10 +193,25 @@ import PageLayout from '../../layouts/PageLayout.astro';
         .attr('stroke-width', 0.5)
         .style('cursor', 'pointer')
         .on('mouseover', function(event, d) {
-          const countryName = getCountryName(d.id);
+          const countryName = d.properties?.name || getCountryName(d.id);
           const countryCode = getCountryCode(d.id);
-          const status = visitedCountries.has(countryCode) ? 'visited' : 'not visited yet';
+          const isVisited = visitedCountries.has(countryCode);
+          const status = isVisited ? 'visited' : 'not visited';
           tooltip.textContent = `${countryName}: ${status}`;
+
+          // Update tooltip styling based on visit status
+          if (isVisited) {
+            // Visited: light text with dark background
+            tooltip.style.backgroundColor = 'var(--color-text)';
+            tooltip.style.color = 'var(--color-bg)';
+            tooltip.style.border = 'none';
+          } else {
+            // Not visited: dark text with light background
+            tooltip.style.backgroundColor = 'var(--color-bg)';
+            tooltip.style.color = 'var(--color-text)';
+            tooltip.style.border = '1px solid var(--color-border)';
+          }
+
           tooltip.classList.remove('hidden');
         })
         .on('mousemove', function(event) {
@@ -208,10 +223,25 @@ import PageLayout from '../../layouts/PageLayout.astro';
         })
         .on('touchstart', function(event, d) {
           event.preventDefault();
-          const countryName = getCountryName(d.id);
+          const countryName = d.properties?.name || getCountryName(d.id);
           const countryCode = getCountryCode(d.id);
-          const status = visitedCountries.has(countryCode) ? 'visited' : 'not visited yet';
+          const isVisited = visitedCountries.has(countryCode);
+          const status = isVisited ? 'visited' : 'not visited';
           tooltip.textContent = `${countryName}: ${status}`;
+
+          // Update tooltip styling based on visit status
+          if (isVisited) {
+            // Visited: light text with dark background
+            tooltip.style.backgroundColor = 'var(--color-text)';
+            tooltip.style.color = 'var(--color-bg)';
+            tooltip.style.border = 'none';
+          } else {
+            // Not visited: dark text with light background
+            tooltip.style.backgroundColor = 'var(--color-bg)';
+            tooltip.style.color = 'var(--color-text)';
+            tooltip.style.border = '1px solid var(--color-border)';
+          }
+
           tooltip.classList.remove('hidden');
           const touch = event.touches[0];
           tooltip.style.left = (touch.pageX + 10) + 'px';
