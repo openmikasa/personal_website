@@ -10,13 +10,202 @@ import PageLayout from '../../layouts/PageLayout.astro';
     <!-- Page Title -->
     <h1 class="text-4xl md:text-5xl font-bold mb-16">Countries I've Been To</h1>
 
-    <!-- Countries Content -->
+    <!-- World Map -->
+    <section class="max-w-4xl mb-8">
+      <div id="world-map-container" class="w-full" style="min-height: 500px;">
+        <!-- Map will be loaded here -->
+      </div>
+
+      <!-- Tooltip -->
+      <div id="country-tooltip" class="hidden fixed px-3 py-2 rounded shadow-lg pointer-events-none z-50" style="background-color: var(--color-text); color: var(--color-bg);"></div>
+    </section>
+
+    <!-- Countries List -->
     <section class="max-w-2xl">
       <div class="prose prose-lg max-w-none">
-        <p class="text-lg" style="color: var(--color-text-secondary);">
-          [Content to Be Added]
+        <p class="text-lg mb-4" style="color: var(--color-text-secondary);">
+          Countries visited: <span id="visited-count">0</span>
         </p>
       </div>
     </section>
   </div>
+
+  <script>
+    // List of visited countries (ISO 3166-1 alpha-3 codes)
+    const visitedCountries = new Set([
+      'AUT', // Austria
+      'BEL', // Belgium
+      'KHM', // Cambodia
+      'CAN', // Canada
+      'CRI', // Costa Rica
+      'CYP', // Cyprus
+      'DOM', // Dominican Republic
+      'FRA', // France
+      'DEU', // Germany
+      'GRC', // Greece
+      'HUN', // Hungary
+      'IRL', // Ireland
+      'ITA', // Italy
+      'KWT', // Kuwait
+      'LBN', // Lebanon
+      'LUX', // Luxembourg
+      'MEX', // Mexico
+      'MCO', // Monaco
+      'MAR', // Morocco
+      'NLD', // Netherlands
+      'NIC', // Nicaragua
+      'OMN', // Oman
+      'POL', // Poland
+      'PRT', // Portugal
+      'QAT', // Qatar
+      'SAU', // Saudi Arabia
+      'SGP', // Singapore
+      'ESP', // Spain
+      'SWE', // Sweden
+      'CHE', // Switzerland
+      'THA', // Thailand
+      'TUR', // Turkey
+      'ARE', // United Arab Emirates
+      'GBR', // United Kingdom
+      'VNM', // Vietnam
+    ]);
+
+    // Load SimpleMaps world map
+    const loadMap = async () => {
+      const container = document.getElementById('world-map-container');
+      const tooltip = document.getElementById('country-tooltip');
+
+      if (!container) return;
+
+      // Load D3 and TopoJSON libraries
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js';
+      document.head.appendChild(script);
+
+      script.onload = () => {
+        const script2 = document.createElement('script');
+        script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js';
+        document.head.appendChild(script2);
+
+        script2.onload = async () => {
+          renderMap();
+        };
+      };
+    };
+
+    const renderMap = async () => {
+      const container = document.getElementById('world-map-container');
+      const tooltip = document.getElementById('country-tooltip');
+
+      // Clear container safely
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+
+      // Fetch world data
+      const worldData = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(r => r.json());
+
+      const width = 1000;
+      const height = 500;
+
+      const svg = d3.select('#world-map-container')
+        .append('svg')
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .attr('width', '100%')
+        .style('max-width', '1000px');
+
+      const projection = d3.geoMercator()
+        .scale(130)
+        .translate([width / 2, height / 1.5]);
+
+      const path = d3.geoPath().projection(projection);
+
+      const countries = topojson.feature(worldData, worldData.objects.countries);
+
+      // Get text color from CSS variable
+      const textColor = getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim();
+      const greyColor = '#E8E6E1';
+
+      svg.selectAll('path')
+        .data(countries.features)
+        .enter()
+        .append('path')
+        .attr('d', path)
+        .attr('fill', d => {
+          // Check if country is visited
+          const countryId = d.id;
+          const countryCode = getCountryCode(countryId);
+          return visitedCountries.has(countryCode) ? textColor : greyColor;
+        })
+        .attr('stroke', '#FFFFFF')
+        .attr('stroke-width', 0.5)
+        .style('cursor', 'pointer')
+        .on('mouseover', function(event, d) {
+          const countryName = getCountryName(d.id);
+          tooltip.textContent = countryName;
+          tooltip.classList.remove('hidden');
+        })
+        .on('mousemove', function(event) {
+          tooltip.style.left = (event.pageX + 10) + 'px';
+          tooltip.style.top = (event.pageY - 30) + 'px';
+        })
+        .on('mouseout', function() {
+          tooltip.classList.add('hidden');
+        })
+        .on('touchstart', function(event, d) {
+          event.preventDefault();
+          const countryName = getCountryName(d.id);
+          tooltip.textContent = countryName;
+          tooltip.classList.remove('hidden');
+          const touch = event.touches[0];
+          tooltip.style.left = (touch.pageX + 10) + 'px';
+          tooltip.style.top = (touch.pageY - 30) + 'px';
+        })
+        .on('touchend', function() {
+          setTimeout(() => tooltip.classList.add('hidden'), 2000);
+        });
+
+      // Update count
+      const countElement = document.getElementById('visited-count');
+      if (countElement) {
+        countElement.textContent = visitedCountries.size.toString();
+      }
+    };
+
+    // Map country IDs to ISO codes (simplified mapping)
+    const countryIdToCode = {
+      '40': 'AUT', '56': 'BEL', '116': 'KHM', '124': 'CAN', '188': 'CRI',
+      '196': 'CYP', '214': 'DOM', '250': 'FRA', '276': 'DEU', '300': 'GRC',
+      '348': 'HUN', '372': 'IRL', '380': 'ITA', '414': 'KWT', '422': 'LBN',
+      '442': 'LUX', '484': 'MEX', '492': 'MCO', '504': 'MAR', '528': 'NLD',
+      '558': 'NIC', '512': 'OMN', '616': 'POL', '620': 'PRT', '634': 'QAT',
+      '682': 'SAU', '702': 'SGP', '724': 'ESP', '752': 'SWE', '756': 'CHE',
+      '764': 'THA', '792': 'TUR', '784': 'ARE', '826': 'GBR', '704': 'VNM'
+    };
+
+    const countryNames = {
+      '40': 'Austria', '56': 'Belgium', '116': 'Cambodia', '124': 'Canada', '188': 'Costa Rica',
+      '196': 'Cyprus', '214': 'Dominican Republic', '250': 'France', '276': 'Germany', '300': 'Greece',
+      '348': 'Hungary', '372': 'Ireland', '380': 'Italy', '414': 'Kuwait', '422': 'Lebanon',
+      '442': 'Luxembourg', '484': 'Mexico', '492': 'Monaco', '504': 'Morocco', '528': 'Netherlands',
+      '558': 'Nicaragua', '512': 'Oman', '616': 'Poland', '620': 'Portugal', '634': 'Qatar',
+      '682': 'Saudi Arabia', '702': 'Singapore', '724': 'Spain', '752': 'Sweden', '756': 'Switzerland',
+      '764': 'Thailand', '792': 'Turkey', '784': 'United Arab Emirates', '826': 'United Kingdom', '704': 'Vietnam'
+    };
+
+    function getCountryCode(id) {
+      return countryIdToCode[id] || '';
+    }
+
+    function getCountryName(id) {
+      return countryNames[id] || 'Unknown';
+    }
+
+    // Load map on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadMap);
+    } else {
+      loadMap();
+    }
+  </script>
 </PageLayout>
