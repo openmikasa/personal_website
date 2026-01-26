@@ -17,10 +17,136 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <!-- Current Reads Section -->
         <div class="mb-16">
           <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Current Reads</h2>
-          <p class="text-lg" style="color: var(--color-text-secondary);">
-            [Content to Be Added]
-          </p>
+
+          <!-- Loading State -->
+          <div id="books-loading" class="text-lg" style="color: var(--color-text-secondary);">
+            Loading books...
+          </div>
+
+          <!-- Error State -->
+          <div id="books-error" class="hidden text-lg" style="color: var(--color-text-secondary);">
+            Unable to load books. Please try again later.
+          </div>
+
+          <!-- Books Grid -->
+          <div id="books-container" class="hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Books will be inserted here -->
+          </div>
         </div>
+
+        <script>
+          const GOODREADS_USER_ID = '164831396';
+          const RSS_URL = `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}?shelf=currently-reading`;
+
+          async function loadCurrentlyReading() {
+            const loadingEl = document.getElementById('books-loading');
+            const errorEl = document.getElementById('books-error');
+            const containerEl = document.getElementById('books-container');
+
+            try {
+              // Use a CORS proxy to fetch the RSS feed
+              const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_URL)}`);
+              const xmlText = await response.text();
+
+              // Parse XML
+              const parser = new DOMParser();
+              const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+              // Get all book items
+              const items = xmlDoc.querySelectorAll('item');
+
+              if (items.length === 0) {
+                loadingEl.classList.add('hidden');
+                errorEl.classList.remove('hidden');
+                errorEl.textContent = 'No books currently reading.';
+                return;
+              }
+
+              // Clear container
+              while (containerEl.firstChild) {
+                containerEl.removeChild(containerEl.firstChild);
+              }
+
+              // Process each book
+              items.forEach(item => {
+                const title = item.querySelector('title')?.textContent || 'Unknown Title';
+                const link = item.querySelector('link')?.textContent || '#';
+                const description = item.querySelector('description')?.textContent || '';
+
+                // Extract book cover from description (it's in an img tag)
+                const imgMatch = description.match(/<img[^>]+src="([^">]+)"/);
+                const coverUrl = imgMatch ? imgMatch[1] : '';
+
+                // Extract author
+                const authorMatch = description.match(/by:\s*([^<]+)/);
+                const author = authorMatch ? authorMatch[1].trim() : '';
+
+                // Create book card using safe DOM methods
+                const bookCard = document.createElement('div');
+                bookCard.className = 'flex flex-col';
+
+                const linkEl = document.createElement('a');
+                linkEl.href = link;
+                linkEl.target = '_blank';
+                linkEl.rel = 'noopener noreferrer';
+                linkEl.className = 'block group';
+
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'mb-3 overflow-hidden rounded';
+                imageContainer.style.aspectRatio = '2/3';
+
+                if (coverUrl) {
+                  const img = document.createElement('img');
+                  img.src = coverUrl;
+                  img.alt = title;
+                  img.className = 'w-full h-full object-cover';
+                  imageContainer.appendChild(img);
+                } else {
+                  const placeholder = document.createElement('div');
+                  placeholder.className = 'w-full h-full flex items-center justify-center';
+                  placeholder.style.backgroundColor = 'var(--color-hover)';
+                  placeholder.textContent = 'No Cover';
+                  imageContainer.appendChild(placeholder);
+                }
+
+                const titleEl = document.createElement('h3');
+                titleEl.className = 'font-semibold text-sm mb-1 line-clamp-2 group-hover:underline';
+                titleEl.style.color = 'var(--color-text)';
+                titleEl.textContent = title;
+
+                linkEl.appendChild(imageContainer);
+                linkEl.appendChild(titleEl);
+
+                if (author) {
+                  const authorEl = document.createElement('p');
+                  authorEl.className = 'text-xs line-clamp-1';
+                  authorEl.style.color = 'var(--color-text-secondary)';
+                  authorEl.textContent = `by ${author}`;
+                  linkEl.appendChild(authorEl);
+                }
+
+                bookCard.appendChild(linkEl);
+                containerEl.appendChild(bookCard);
+              });
+
+              // Show books, hide loading
+              loadingEl.classList.add('hidden');
+              containerEl.classList.remove('hidden');
+
+            } catch (error) {
+              console.error('Error loading books:', error);
+              loadingEl.classList.add('hidden');
+              errorEl.classList.remove('hidden');
+            }
+          }
+
+          // Load books when page loads
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadCurrentlyReading);
+          } else {
+            loadCurrentlyReading();
+          }
+        </script>
 
         <!-- Senscritique Latest Watch Section -->
         <div class="mb-16">
