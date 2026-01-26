@@ -143,9 +143,11 @@ import PageLayout from '../../layouts/PageLayout.astro';
       // Create a group for zooming
       const g = svg.append('g');
 
-      // Add zoom behavior
+      // Add zoom behavior with panning constraints
       const zoom = d3.zoom()
         .scaleExtent([1, 8])
+        .translateExtent([[-width * 0.2, -height * 0.2], [width * 1.2, height * 1.2]])
+        .extent([[0, 0], [width, height]])
         .on('zoom', (event) => {
           g.attr('transform', event.transform);
         });
