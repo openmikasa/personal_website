@@ -27,9 +27,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### 2. Playwright (Verification Skill)
 * **Protocol:** Once a UI component or a user flow (login, checkout, etc.) is modified, use the `playwright` MCP server to verify the changes.
-* **Instruction:** 1. Run a headless browser check to ensure the page renders without 500 errors.
+* **Instruction:**
+    1. Run a headless browser check to ensure the page renders without 500 errors.
     2. Confirm that critical buttons are "clickable" and visible.
     3. If a visual bug is suspected, take a screenshot and analyze the layout.
+    4. **ALWAYS test changes automatically** - never ask the user if you should test. Start the dev server, verify all affected pages work correctly, then close the browser and stop the server.
 
 ---
 
