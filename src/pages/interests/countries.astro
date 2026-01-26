@@ -33,6 +33,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
   <script>
     // List of visited countries (ISO 3166-1 alpha-3 codes)
     const visitedCountries = new Set([
+      'ABW', // Aruba
       'AUT', // Austria
       'BEL', // Belgium
       'KHM', // Cambodia
@@ -43,7 +44,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
       'FRA', // France
       'DEU', // Germany
       'GRC', // Greece
+      'GLP', // Guadeloupe
       'HUN', // Hungary
+      'IDN', // Indonesia
       'IRL', // Ireland
       'ITA', // Italy
       'KWT', // Kuwait
@@ -115,6 +118,18 @@ import PageLayout from '../../layouts/PageLayout.astro';
         .attr('width', '100%')
         .style('max-width', '1000px');
 
+      // Create a group for zooming
+      const g = svg.append('g');
+
+      // Add zoom behavior
+      const zoom = d3.zoom()
+        .scaleExtent([1, 8])
+        .on('zoom', (event) => {
+          g.attr('transform', event.transform);
+        });
+
+      svg.call(zoom);
+
       const projection = d3.geoMercator()
         .scale(130)
         .translate([width / 2, height / 1.5]);
@@ -127,7 +142,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
       const textColor = getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim();
       const greyColor = '#E8E6E1';
 
-      svg.selectAll('path')
+      g.selectAll('path')
         .data(countries.features)
         .enter()
         .append('path')
@@ -181,9 +196,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
     const countryIdToCode = {
       '40': 'AUT', '56': 'BEL', '116': 'KHM', '124': 'CAN', '188': 'CRI',
       '196': 'CYP', '214': 'DOM', '250': 'FRA', '276': 'DEU', '300': 'GRC',
-      '348': 'HUN', '372': 'IRL', '380': 'ITA', '414': 'KWT', '422': 'LBN',
+      '312': 'GLP', '348': 'HUN', '360': 'IDN', '372': 'IRL', '380': 'ITA', '414': 'KWT', '422': 'LBN',
       '442': 'LUX', '484': 'MEX', '492': 'MCO', '504': 'MAR', '528': 'NLD',
-      '558': 'NIC', '512': 'OMN', '616': 'POL', '620': 'PRT', '634': 'QAT',
+      '533': 'ABW', '558': 'NIC', '512': 'OMN', '616': 'POL', '620': 'PRT', '634': 'QAT',
       '682': 'SAU', '702': 'SGP', '724': 'ESP', '752': 'SWE', '756': 'CHE',
       '764': 'THA', '792': 'TUR', '784': 'ARE', '826': 'GBR', '840': 'USA', '704': 'VNM'
     };
@@ -191,9 +206,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
     const countryNames = {
       '40': 'Austria', '56': 'Belgium', '116': 'Cambodia', '124': 'Canada', '188': 'Costa Rica',
       '196': 'Cyprus', '214': 'Dominican Republic', '250': 'France', '276': 'Germany', '300': 'Greece',
-      '348': 'Hungary', '372': 'Ireland', '380': 'Italy', '414': 'Kuwait', '422': 'Lebanon',
+      '312': 'Guadeloupe', '348': 'Hungary', '360': 'Indonesia', '372': 'Ireland', '380': 'Italy', '414': 'Kuwait', '422': 'Lebanon',
       '442': 'Luxembourg', '484': 'Mexico', '492': 'Monaco', '504': 'Morocco', '528': 'Netherlands',
-      '558': 'Nicaragua', '512': 'Oman', '616': 'Poland', '620': 'Portugal', '634': 'Qatar',
+      '533': 'Aruba', '558': 'Nicaragua', '512': 'Oman', '616': 'Poland', '620': 'Portugal', '634': 'Qatar',
       '682': 'Saudi Arabia', '702': 'Singapore', '724': 'Spain', '752': 'Sweden', '756': 'Switzerland',
       '764': 'Thailand', '792': 'Turkey', '784': 'United Arab Emirates', '826': 'United Kingdom', '840': 'United States', '704': 'Vietnam'
     };
