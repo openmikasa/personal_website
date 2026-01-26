@@ -40,7 +40,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 * **Components:** Use small, functional, atomic components.
 * **Naming:** Use `kebab-case` for file names and `PascalCase` for React components.
 * **Error Handling:** Use try/catch blocks with meaningful error messages and UI feedback.
-* **Content Formatting:** Any content written by the user should be automatically corrected to have consistent uppercase/lowercase formatting (proper Title Case for headings, proper capitalization for names and proper nouns). The backend should maintain proper casing even though the frontend displays everything in lowercase via CSS.
+* **Content Formatting:** Any content written by the user should be automatically corrected to use proper sentence case (not title case). Only capitalize the first word of sentences, proper nouns (names, places, brands like UberX, BNP Paribas, etc.), and acronyms. The backend should maintain proper casing even though the frontend displays everything in lowercase via CSS.
 
 ---
 
