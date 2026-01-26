@@ -93,12 +93,32 @@ import PageLayout from '../layouts/PageLayout.astro';
         <!-- Submit Button -->
         <button
           type="submit"
-          class="w-full text-white px-6 py-3 rounded-lg font-medium"
+          id="submit-button"
+          class="w-full text-white px-6 py-3 rounded-lg font-medium transition-all duration-200"
           style="background-color: var(--color-accent); box-shadow: var(--shadow-sm);"
         >
           Send Message
         </button>
       </form>
+
+      <script>
+        const submitButton = document.getElementById('submit-button');
+        if (submitButton) {
+          submitButton.addEventListener('mouseenter', () => {
+            submitButton.style.backgroundColor = 'var(--color-text)';
+            submitButton.style.color = 'var(--color-bg)';
+            submitButton.style.transform = 'translateY(-2px)';
+            submitButton.style.boxShadow = 'var(--shadow-md)';
+          });
+
+          submitButton.addEventListener('mouseleave', () => {
+            submitButton.style.backgroundColor = 'var(--color-accent)';
+            submitButton.style.color = 'white';
+            submitButton.style.transform = 'translateY(0)';
+            submitButton.style.boxShadow = 'var(--shadow-sm)';
+          });
+        }
+      </script>
     </section>
   </div>
 </PageLayout>

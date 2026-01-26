@@ -16,7 +16,10 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
         <!-- Current Reads Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Current Reads</h2>
+          <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-text);">Current Reads</h2>
+          <p class="text-sm mb-6" style="color: var(--color-text-secondary);">
+            Continuously updated through my Goodreads RSS feed
+          </p>
 
           <!-- Loading State -->
           <div id="books-loading" class="text-lg" style="color: var(--color-text-secondary);">
@@ -28,9 +31,21 @@ import PageLayout from '../../layouts/PageLayout.astro';
             Unable to load books. Please try again later.
           </div>
 
-          <!-- Books Grid -->
-          <div id="books-container" class="hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Books will be inserted here -->
+          <!-- Books Table -->
+          <div id="books-container" class="hidden overflow-x-auto">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <th class="text-left py-3 px-4 font-semibold" style="color: var(--color-text);">Title</th>
+                  <th class="text-left py-3 px-4 font-semibold" style="color: var(--color-text);">Author</th>
+                  <th class="text-left py-3 px-4 font-semibold" style="color: var(--color-text);">Description</th>
+                  <th class="text-left py-3 px-4 font-semibold" style="color: var(--color-text);">Date Added</th>
+                </tr>
+              </thead>
+              <tbody id="books-table-body">
+                <!-- Books will be inserted here -->
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -42,11 +57,13 @@ import PageLayout from '../../layouts/PageLayout.astro';
             const loadingEl = document.getElementById('books-loading');
             const errorEl = document.getElementById('books-error');
             const containerEl = document.getElementById('books-container');
+            const tableBodyEl = document.getElementById('books-table-body');
 
             try {
               // Use a CORS proxy to fetch the RSS feed
-              const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_URL)}`);
-              const xmlText = await response.text();
+              const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(RSS_URL)}`);
+              const data = await response.json();
+              const xmlText = data.contents;
 
               // Parse XML
               const parser = new DOMParser();
@@ -62,9 +79,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
                 return;
               }
 
-              // Clear container
-              while (containerEl.firstChild) {
-                containerEl.removeChild(containerEl.firstChild);
+              // Clear table body
+              while (tableBodyEl.firstChild) {
+                tableBodyEl.removeChild(tableBodyEl.firstChild);
               }
 
               // Process each book
@@ -72,64 +89,83 @@ import PageLayout from '../../layouts/PageLayout.astro';
                 const title = item.querySelector('title')?.textContent || 'Unknown Title';
                 const link = item.querySelector('link')?.textContent || '#';
                 const description = item.querySelector('description')?.textContent || '';
-
-                // Extract book cover from description (it's in an img tag)
-                const imgMatch = description.match(/<img[^>]+src="([^">]+)"/);
-                const coverUrl = imgMatch ? imgMatch[1] : '';
+                const pubDate = item.querySelector('pubDate')?.textContent || '';
 
                 // Extract author
                 const authorMatch = description.match(/by:\s*([^<]+)/);
                 const author = authorMatch ? authorMatch[1].trim() : '';
 
-                // Create book card using safe DOM methods
-                const bookCard = document.createElement('div');
-                bookCard.className = 'flex flex-col';
-
-                const linkEl = document.createElement('a');
-                linkEl.href = link;
-                linkEl.target = '_blank';
-                linkEl.rel = 'noopener noreferrer';
-                linkEl.className = 'block group';
-
-                const imageContainer = document.createElement('div');
-                imageContainer.className = 'mb-3 overflow-hidden rounded';
-                imageContainer.style.aspectRatio = '2/3';
-
-                if (coverUrl) {
-                  const img = document.createElement('img');
-                  img.src = coverUrl;
-                  img.alt = title;
-                  img.className = 'w-full h-full object-cover';
-                  imageContainer.appendChild(img);
-                } else {
-                  const placeholder = document.createElement('div');
-                  placeholder.className = 'w-full h-full flex items-center justify-center';
-                  placeholder.style.backgroundColor = 'var(--color-hover)';
-                  placeholder.textContent = 'No Cover';
-                  imageContainer.appendChild(placeholder);
+                // Extract book description by parsing HTML safely
+                let bookDescription = '';
+                const parser = new DOMParser();
+                const descDoc = parser.parseFromString(description, 'text/html');
+                const textContent = descDoc.body.textContent || '';
+                // Find description text (usually after author info)
+                const lines = textContent.split('\n').map(l => l.trim()).filter(l => l.length > 50);
+                if (lines.length > 0) {
+                  // Take the first substantial line as description
+                  bookDescription = lines[0].substring(0, 150) + (lines[0].length > 150 ? '...' : '');
                 }
 
-                const titleEl = document.createElement('h3');
-                titleEl.className = 'font-semibold text-sm mb-1 line-clamp-2 group-hover:underline';
-                titleEl.style.color = 'var(--color-text)';
-                titleEl.textContent = title;
-
-                linkEl.appendChild(imageContainer);
-                linkEl.appendChild(titleEl);
-
-                if (author) {
-                  const authorEl = document.createElement('p');
-                  authorEl.className = 'text-xs line-clamp-1';
-                  authorEl.style.color = 'var(--color-text-secondary)';
-                  authorEl.textContent = `by ${author}`;
-                  linkEl.appendChild(authorEl);
+                // Format date added
+                let dateAdded = '';
+                if (pubDate) {
+                  const date = new Date(pubDate);
+                  dateAdded = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
                 }
 
-                bookCard.appendChild(linkEl);
-                containerEl.appendChild(bookCard);
+                // Create table row
+                const row = document.createElement('tr');
+                row.style.borderBottom = '1px solid var(--color-border)';
+                row.className = 'hover:bg-opacity-50';
+                row.style.transition = 'background-color 0.2s';
+
+                row.addEventListener('mouseenter', () => {
+                  row.style.backgroundColor = 'var(--color-hover)';
+                });
+                row.addEventListener('mouseleave', () => {
+                  row.style.backgroundColor = 'transparent';
+                });
+
+                // Title column with link
+                const titleCell = document.createElement('td');
+                titleCell.className = 'py-3 px-4';
+                const titleLink = document.createElement('a');
+                titleLink.href = link;
+                titleLink.target = '_blank';
+                titleLink.rel = 'noopener noreferrer';
+                titleLink.textContent = title;
+                titleLink.className = 'hover:underline';
+                titleLink.style.color = 'var(--color-text)';
+                titleCell.appendChild(titleLink);
+
+                // Author column
+                const authorCell = document.createElement('td');
+                authorCell.className = 'py-3 px-4';
+                authorCell.textContent = author;
+                authorCell.style.color = 'var(--color-text-secondary)';
+
+                // Description column
+                const descriptionCell = document.createElement('td');
+                descriptionCell.className = 'py-3 px-4';
+                descriptionCell.textContent = bookDescription || 'No description available';
+                descriptionCell.style.color = 'var(--color-text-secondary)';
+                descriptionCell.style.fontSize = '0.875rem';
+
+                // Date added column
+                const dateCell = document.createElement('td');
+                dateCell.className = 'py-3 px-4';
+                dateCell.textContent = dateAdded;
+                dateCell.style.color = 'var(--color-text-secondary)';
+
+                row.appendChild(titleCell);
+                row.appendChild(authorCell);
+                row.appendChild(descriptionCell);
+                row.appendChild(dateCell);
+                tableBodyEl.appendChild(row);
               });
 
-              // Show books, hide loading
+              // Show table, hide loading
               loadingEl.classList.add('hidden');
               containerEl.classList.remove('hidden');
 
@@ -148,13 +184,143 @@ import PageLayout from '../../layouts/PageLayout.astro';
           }
         </script>
 
-        <!-- Senscritique Latest Watch Section -->
+        <!-- Latest Watch Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Senscritique: Latest Watch</h2>
-          <p class="text-lg" style="color: var(--color-text-secondary);">
-            [Content to Be Added]
-          </p>
+          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Latest Watch</h2>
+
+          <!-- Loading State -->
+          <div id="movies-loading" class="text-lg" style="color: var(--color-text-secondary);">
+            Loading movies...
+          </div>
+
+          <!-- Error State -->
+          <div id="movies-error" class="hidden text-lg" style="color: var(--color-text-secondary);">
+            Unable to load movies. Please try again later.
+          </div>
+
+          <!-- Movies Grid -->
+          <div id="movies-container" class="hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Movies will be inserted here -->
+          </div>
         </div>
+
+        <script>
+          const SENSCRITIQUE_USERNAME = 'the_entrians';
+
+          async function loadLatestMovies() {
+            const loadingEl = document.getElementById('movies-loading');
+            const errorEl = document.getElementById('movies-error');
+            const containerEl = document.getElementById('movies-container');
+
+            try {
+              // SensCritique RSS feed URL for user's latest ratings
+              const RSS_URL = `https://www.senscritique.com/${SENSCRITIQUE_USERNAME}/listes/perso/rss`;
+
+              // Use CORS proxy to fetch the RSS feed
+              const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_URL)}`);
+              const xmlText = await response.text();
+
+              // Parse XML
+              const parser = new DOMParser();
+              const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+              // Get all items
+              const items = xmlDoc.querySelectorAll('item');
+
+              if (items.length === 0) {
+                loadingEl.classList.add('hidden');
+                errorEl.classList.remove('hidden');
+                errorEl.textContent = 'No movies found.';
+                return;
+              }
+
+              // Clear container
+              while (containerEl.firstChild) {
+                containerEl.removeChild(containerEl.firstChild);
+              }
+
+              // Process each movie (limit to latest 8)
+              const moviesToShow = Array.from(items).slice(0, 8);
+              moviesToShow.forEach(item => {
+                const title = item.querySelector('title')?.textContent || 'Unknown Title';
+                const link = item.querySelector('link')?.textContent || '#';
+                const description = item.querySelector('description')?.textContent || '';
+
+                // Extract movie poster from description (it's in an img tag)
+                const imgMatch = description.match(/<img[^>]+src="([^">]+)"/);
+                const posterUrl = imgMatch ? imgMatch[1] : '';
+
+                // Extract rating if available (SensCritique uses a rating system)
+                const ratingMatch = description.match(/Note[:\s]*([0-9]+(?:[.,][0-9]+)?)/i) ||
+                                   description.match(/([0-9]+(?:[.,][0-9]+)?)\/10/i);
+                const rating = ratingMatch ? ratingMatch[1].replace(',', '.') : null;
+
+                // Create movie card
+                const movieCard = document.createElement('div');
+                movieCard.className = 'flex flex-col';
+
+                const linkEl = document.createElement('a');
+                linkEl.href = link;
+                linkEl.target = '_blank';
+                linkEl.rel = 'noopener noreferrer';
+                linkEl.className = 'block group';
+
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'mb-3 overflow-hidden rounded relative';
+                imageContainer.style.aspectRatio = '2/3';
+
+                if (posterUrl) {
+                  const img = document.createElement('img');
+                  img.src = posterUrl;
+                  img.alt = title;
+                  img.className = 'w-full h-full object-cover';
+                  imageContainer.appendChild(img);
+
+                  // Add rating badge if available
+                  if (rating) {
+                    const ratingBadge = document.createElement('div');
+                    ratingBadge.className = 'absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-xs font-semibold';
+                    ratingBadge.textContent = `${rating}/10`;
+                    imageContainer.appendChild(ratingBadge);
+                  }
+                } else {
+                  const placeholder = document.createElement('div');
+                  placeholder.className = 'w-full h-full flex items-center justify-center';
+                  placeholder.style.backgroundColor = 'var(--color-hover)';
+                  placeholder.textContent = 'No Poster';
+                  imageContainer.appendChild(placeholder);
+                }
+
+                const titleEl = document.createElement('h3');
+                titleEl.className = 'font-semibold text-sm mb-1 line-clamp-2 group-hover:underline';
+                titleEl.style.color = 'var(--color-text)';
+                titleEl.textContent = title;
+
+                linkEl.appendChild(imageContainer);
+                linkEl.appendChild(titleEl);
+
+                movieCard.appendChild(linkEl);
+                containerEl.appendChild(movieCard);
+              });
+
+              // Show movies, hide loading
+              loadingEl.classList.add('hidden');
+              containerEl.classList.remove('hidden');
+
+            } catch (error) {
+              console.error('Error loading movies:', error);
+              loadingEl.classList.add('hidden');
+              errorEl.classList.remove('hidden');
+            }
+          }
+
+          // Load movies when page loads
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadLatestMovies);
+          } else {
+            loadLatestMovies();
+          }
+        </script>
 
         <!-- Google Maps Recommendations Section -->
         <div class="mb-16">
