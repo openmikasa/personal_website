@@ -72,7 +72,6 @@
 
   a {
     color: var(--color-link);
-    @apply transition-colors duration-200;
     position: relative;
   }
 
@@ -89,25 +88,13 @@
     text-decoration: underline;
   }
 
-  /* Animated underline for prose/content links only */
+  /* Simple underline for prose/content links */
   .prose a {
     text-decoration: none;
-    position: relative;
   }
 
-  .prose a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--color-link);
-    transition: width 300ms ease;
-  }
-
-  .prose a:hover::after {
-    width: 100%;
+  .prose a:hover {
+    text-decoration: underline;
   }
 }
 
@@ -140,15 +127,6 @@
     }
   }
 
-  /* Smooth button and card interactions */
-  .interactive-lift {
-    transition: transform 200ms ease, box-shadow 200ms ease;
-  }
-
-  .interactive-lift:hover {
-    transform: translateY(-2px);
-  }
-
   /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
     .fade-in,
@@ -156,10 +134,6 @@
     .fade-in-delay-2,
     .fade-in-delay-3 {
       animation: none;
-    }
-
-    .interactive-lift:hover {
-      transform: none;
     }
 
     * {
