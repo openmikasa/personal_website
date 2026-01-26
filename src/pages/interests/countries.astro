@@ -67,6 +67,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
       'TUR', // Turkey
       'ARE', // United Arab Emirates
       'GBR', // United Kingdom
+      'USA', // United States
       'VNM', // Vietnam
     ]);
 
@@ -142,7 +143,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
         .style('cursor', 'pointer')
         .on('mouseover', function(event, d) {
           const countryName = getCountryName(d.id);
-          tooltip.textContent = countryName;
+          const countryCode = getCountryCode(d.id);
+          const status = visitedCountries.has(countryCode) ? 'visited' : 'not visited yet';
+          tooltip.textContent = `${countryName}: ${status}`;
           tooltip.classList.remove('hidden');
         })
         .on('mousemove', function(event) {
@@ -155,7 +158,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
         .on('touchstart', function(event, d) {
           event.preventDefault();
           const countryName = getCountryName(d.id);
-          tooltip.textContent = countryName;
+          const countryCode = getCountryCode(d.id);
+          const status = visitedCountries.has(countryCode) ? 'visited' : 'not visited yet';
+          tooltip.textContent = `${countryName}: ${status}`;
           tooltip.classList.remove('hidden');
           const touch = event.touches[0];
           tooltip.style.left = (touch.pageX + 10) + 'px';
@@ -180,7 +185,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
       '442': 'LUX', '484': 'MEX', '492': 'MCO', '504': 'MAR', '528': 'NLD',
       '558': 'NIC', '512': 'OMN', '616': 'POL', '620': 'PRT', '634': 'QAT',
       '682': 'SAU', '702': 'SGP', '724': 'ESP', '752': 'SWE', '756': 'CHE',
-      '764': 'THA', '792': 'TUR', '784': 'ARE', '826': 'GBR', '704': 'VNM'
+      '764': 'THA', '792': 'TUR', '784': 'ARE', '826': 'GBR', '840': 'USA', '704': 'VNM'
     };
 
     const countryNames = {
@@ -190,7 +195,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
       '442': 'Luxembourg', '484': 'Mexico', '492': 'Monaco', '504': 'Morocco', '528': 'Netherlands',
       '558': 'Nicaragua', '512': 'Oman', '616': 'Poland', '620': 'Portugal', '634': 'Qatar',
       '682': 'Saudi Arabia', '702': 'Singapore', '724': 'Spain', '752': 'Sweden', '756': 'Switzerland',
-      '764': 'Thailand', '792': 'Turkey', '784': 'United Arab Emirates', '826': 'United Kingdom', '704': 'Vietnam'
+      '764': 'Thailand', '792': 'Turkey', '784': 'United Arab Emirates', '826': 'United Kingdom', '840': 'United States', '704': 'Vietnam'
     };
 
     function getCountryCode(id) {
