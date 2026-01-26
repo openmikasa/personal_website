@@ -12,8 +12,30 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
     <!-- World Map -->
     <section class="max-w-4xl mb-8">
-      <div id="world-map-container" class="w-full" style="min-height: 500px;">
-        <!-- Map will be loaded here -->
+      <div class="relative">
+        <div id="world-map-container" class="w-full" style="min-height: 500px;">
+          <!-- Map will be loaded here -->
+        </div>
+
+        <!-- Zoom Controls -->
+        <div class="absolute top-4 right-4 flex flex-col gap-2">
+          <button
+            id="zoom-in-btn"
+            class="w-10 h-10 rounded flex items-center justify-center font-bold text-xl"
+            style="background-color: var(--color-text); color: var(--color-bg); box-shadow: var(--shadow-md);"
+            title="Zoom in"
+          >
+            +
+          </button>
+          <button
+            id="zoom-out-btn"
+            class="w-10 h-10 rounded flex items-center justify-center font-bold text-xl"
+            style="background-color: var(--color-text); color: var(--color-bg); box-shadow: var(--shadow-md);"
+            title="Zoom out"
+          >
+            -
+          </button>
+        </div>
       </div>
 
       <!-- Tooltip -->
@@ -129,6 +151,20 @@ import PageLayout from '../../layouts/PageLayout.astro';
         });
 
       svg.call(zoom);
+
+      // Connect zoom buttons
+      const zoomInBtn = document.getElementById('zoom-in-btn');
+      const zoomOutBtn = document.getElementById('zoom-out-btn');
+
+      if (zoomInBtn && zoomOutBtn) {
+        zoomInBtn.addEventListener('click', () => {
+          svg.transition().duration(300).call(zoom.scaleBy, 1.5);
+        });
+
+        zoomOutBtn.addEventListener('click', () => {
+          svg.transition().duration(300).call(zoom.scaleBy, 0.67);
+        });
+      }
 
       const projection = d3.geoMercator()
         .scale(130)
