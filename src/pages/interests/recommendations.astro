@@ -4,14 +4,14 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
 <PageLayout
   title="Recommendations - Ramy Ghorayeb"
-  description="My Recommendations for Books, Music, Movies, and Places"
+  description="My favorite books, mangas, music, movies, and TV shows that deserve more attention"
 >
   <div class="fade-in">
     <!-- Page Title -->
     <h1 class="text-4xl md:text-5xl font-bold mb-16">Recommendations</h1>
 
     <!-- Recommendations Content -->
-    <section class="max-w-2xl">
+    <section class="max-w-5xl">
       <div class="prose prose-lg max-w-none">
 
         <!-- Current Reads Section -->
@@ -147,12 +147,96 @@ import PageLayout from '../../layouts/PageLayout.astro';
           }
         </script>
 
-        <!-- Best of Everything Section -->
+        <!-- Introduction -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Best Book / Music / Movies / Places (in Squared Pictures)</h2>
-          <p class="text-lg" style="color: var(--color-text-secondary);">
-            [Content to Be Added]
+          <p class="text-lg leading-relaxed" style="color: var(--color-text-secondary);">
+            These are not necessarily my all-time favorites, but favorites that most of my friends I recommend them to never gave them a try—despite sometimes how famous they can be, especially if they are not familiar with this style.
           </p>
+        </div>
+
+        <!-- Books Section -->
+        <div class="mb-16">
+          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Books</h2>
+          <div class="grid grid-cols-5 gap-4">
+            <img src="https://covers.openlibrary.org/b/id/8228691-L.jpg" alt="The Stranger by Albert Camus" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/12583426-L.jpg" alt="Stranger Than Fiction by Chuck Palahniuk" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8255931-L.jpg" alt="American Psycho by Bret Easton Ellis" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8490484-L.jpg" alt="Lord of the Flies by William Golding" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/10677669-L.jpg" alt="Oro by Cizia Zykë" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/7222246-L.jpg" alt="1984 by George Orwell" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8455229-L.jpg" alt="Death's End by Liu Cixin" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8261998-L.jpg" alt="Ubik by Philip K. Dick" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/2271054-L.jpg" alt="Les Thanatonautes by Bernard Werber" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8246950-L.jpg" alt="Bel Ami by Guy de Maupassant" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Mangas/Comic Books Section -->
+        <div class="mb-16">
+          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Mangas / Comic Books</h2>
+          <div class="grid grid-cols-5 gap-4">
+            <img src="https://covers.openlibrary.org/b/id/8478296-L.jpg" alt="Berserk" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/10255114-L.jpg" alt="Injustice: Gods Among Us" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8258045-L.jpg" alt="Watchmen" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/10234199-L.jpg" alt="Death Note" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8308353-L.jpg" alt="Hunter x Hunter" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/6736843-L.jpg" alt="Real by Takehiko Inoue" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/6514091-L.jpg" alt="Great Teacher Onizuka" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/2270807-L.jpg" alt="Beck by Harold Sakuishi" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/8265275-L.jpg" alt="Gantz" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://covers.openlibrary.org/b/id/6548956-L.jpg" alt="The Life and Times of Scrooge McDuck by Don Rosa" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Music Section -->
+        <div class="mb-16">
+          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Music</h2>
+          <div class="grid grid-cols-5 gap-4">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/db/77/11/db77115b-5e66-2a9d-18f0-52699e2a9999/093624746423.jpg/600x600bb.jpg" alt="California by Mr Bungle" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/f3/32/18/f3321874-ec3f-7c29-4c96-8b7c7a4e3f59/886443919365.jpg/600x600bb.jpg" alt="The Seer by Swans" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7f/06/a9/7f06a9f5-c6b0-9d63-dc6f-f6afaef0c07e/00720642472521.jpg/600x600bb.jpg" alt="MTV Unplugged by Nirvana" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/3c/b4/e3/3cb4e3d0-cd77-8f18-7465-d60e6949b435/dj.lnyqnviz.jpg/600x600bb.jpg" alt="The Dark Side of the Moon by Pink Floyd" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/83/9c/5f/839c5f8e-f8e5-1c0a-3b5e-7a4e8b9c5f8e/cover.jpg/600x600bb.jpg" alt="Infinity by Devin Townsend" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/55/9f/3a/559f3abc-8f1d-3c3e-3b28-e0a2f0e0e8a9/cover.jpg/600x600bb.jpg" alt="Veteran by JPEG Mafia" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/dc/72/95/dc729505-3c0e-2a59-4b6e-3c2f8f8e8f8f/cover.jpg/600x600bb.jpg" alt="Insurgentes by Steven Wilson" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3f/33/86/3f3386d7-8f1d-3c3e-3b28-e0a2f0e0e8a9/00602527186443.jpg/600x600bb.jpg" alt="Mezzanine by Massive Attack" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/placeholder-music.jpg/600x600bb.jpg" alt="La Fin de l'Espèce by Klub des Loosers" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e7/8f/2a/e78f2a8d-8f1d-3c3e-3b28-e0a2f0e0e8a9/00602527509488.jpg/600x600bb.jpg" alt="The Social Network by Trent Reznor & Atticus Ross" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Movies Section -->
+        <div class="mb-16">
+          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Movies</h2>
+          <div class="grid grid-cols-5 gap-4">
+            <img src="https://image.tmdb.org/t/p/w500/7fn624j5lj3xTme2SgiLCeuedmO.jpg" alt="Whiplash" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/wby9315QzVKdW9BonAefg8jGTTb.jpg" alt="American Beauty" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/xqhuhJV7HSDhwi2FYk3U5F0JQYY.jpg" alt="99 Francs" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg" alt="Soul" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/rq5u8xIr4K8mnXXEk1cCDpUqwUx.jpg" alt="Wrong" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/qU4VbUBTYHs5M4WvPzDGmYJh2Y.jpg" alt="Grave" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/rSZs93P0LLxqlVEbI001UKoeCQC.jpg" alt="Birdman" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/t5v2Zsb3P0C5c9nCZc4eNkPLcyZ.jpg" alt="Fantastic Mr Fox" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/c5MZHSWnbYOkvSS1h8QvlKtR7L4.jpg" alt="Spring Breakers" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/2cUobFzOFB0q2uXUcZYGJRs8a4f.jpg" alt="Battle Royale" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- TV Shows Section -->
+        <div class="mb-16">
+          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">TV Shows</h2>
+          <div class="grid grid-cols-5 gap-4">
+            <img src="https://image.tmdb.org/t/p/w500/aROHhSCpGAO8v3M2vXfW6qKc4WP.jpg" alt="The Leftovers" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/6jKnujNCXZNHN4M9sYbHNv9xJ0X.jpg" alt="Halt and Catch Fire" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/kS0hSzH4p8y8AUZNlMqF5Zq4Gq.jpg" alt="Bref" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/8UYW4olZmVSNZXqQXs8qKQBxzqn.jpg" alt="Utopia" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/9TVO4IEe2T1pZDQGJrkNpf8WjVu.jpg" alt="Avatar: The Last Airbender" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/uRNqR3FgdnCM7s5e1iqlN7OWqZk.jpg" alt="The Young Pope" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/placeholder.jpg" alt="Marble Hornets" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/jM4VpRJqSfZLT5pQAMlsMQCF6eB.jpg" alt="American Vandal" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/w1KCEyGrhECDrz9qWcGxb2Hd9jz.jpg" alt="The Rehearsal" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            <img src="https://image.tmdb.org/t/p/w500/eGJH3X6qZIznJRzKjWJKKlCxTUf.jpg" alt="The Mysterious Cities of Gold" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+          </div>
         </div>
 
       </div>
