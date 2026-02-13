@@ -5,7 +5,6 @@ export interface SocialLink {
 }
 
 export const socialLinks: SocialLink[] = [
-  // Temporarily removed - see archive/RESTORATION_NOTES.md to restore
-  // { name: 'linkedin', url: 'https://linkedin.com/in/ramyg' },
+  { name: 'linkedin (with my recommendations)', url: 'https://linkedin.com/in/ramyg' },
   { name: 'github', url: 'https://github.com/openmikasa' },
 ];
