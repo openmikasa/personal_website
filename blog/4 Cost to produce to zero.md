@@ -22,7 +22,7 @@ But AI doesn't stop at intellectual work.
 
 [Jensen Huang calls this moment](https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/physical-ai-humanoid-robots.html) "the ChatGPT moment for physical AI." Once reasoning costs nothing, robotics follows. And once robots can marginally manufacture for free, physical production costs will approach zero too.
 
-What becomes free when production costs goes to zero? Well everything. Clothes. Food. Healthcare. Not "survival-level" free. This sounds utopian but it's what happened with every technology that dropped costs. It just happens that we forgot what the world was before and we contempt software.
+What becomes free when cost to produce goes to zero? Well everything. Clothes. Food. Healthcare. Not "survival-level" free. This sounds utopian but it's what happened with every technology that dropped costs. It just happens that we forgot what the world was before and we contempt software.
 
 The only thing that will still cost you will probably be land. You want to buy enough space in Paris for a house with a garden, there no tech that can help you.
 
