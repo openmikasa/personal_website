@@ -38,6 +38,14 @@ import PageLayout from '../../layouts/PageLayout.astro';
   object-fit: cover;
   object-position: top center;
 }
+
+/* Keep music album covers square */
+.cover-grid-square img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+}
 </style>
 
 <PageLayout
@@ -262,7 +270,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <!-- Music Section -->
         <div class="mb-16">
           <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Music</h2>
-          <div class="grid grid-cols-5 gap-4 cover-grid">
+          <div class="grid grid-cols-5 gap-4 cover-grid-square">
             <div class="cover-container" data-info="Mr Bungle - California (1999)">
               <img src="/images/recommendations/music/california.jpg" alt="California" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
