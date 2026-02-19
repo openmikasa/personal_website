@@ -31,11 +31,33 @@ const blogPosts = allPosts
     <!-- Page Title -->
     <h1 class="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
 
-    <!-- RSS Link -->
-    <div class="mb-16">
+    <!-- Subscription Section -->
+    <div class="mb-16 space-y-4">
+      <!-- RSS Link -->
       <a href="/blog/rss.xml" class="text-sm font-mono hover:underline text-secondary" target="_blank" rel="noopener noreferrer">
         Subscribe via RSS
       </a>
+
+      <!-- Email Subscription Form -->
+      <form
+        action="https://buttondown.email/api/emails/embed-subscribe/ramyg"
+        method="post"
+        class="flex gap-2 max-w-md"
+      >
+        <input
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+          class="flex-1 px-4 py-2 border rounded-lg focus:outline-none form-input text-sm"
+        />
+        <button
+          type="submit"
+          class="px-6 py-2 text-white rounded-lg font-medium font-mono text-sm transition-all duration-200 bg-[var(--color-accent)] shadow-[var(--shadow-sm)] hover:bg-[var(--color-text)] hover:shadow-[var(--shadow-md)]"
+        >
+          Subscribe via email
+        </button>
+      </form>
     </div>
 
     <!-- Blog Posts List -->
@@ -82,9 +104,11 @@ const blogPosts = allPosts
 </PageLayout>
 
 <style is:global>
-  /* Override lowercase for blog list titles */
+  /* Override lowercase for blog list titles and form */
   .blog-list h2,
-  .blog-list time {
+  .blog-list time,
+  .blog-list input,
+  .blog-list button {
     text-transform: none !important;
   }
 </style>
