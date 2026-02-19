@@ -4,13 +4,22 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
 // Get all blog posts and sort by date (newest first)
 const allPosts = await getCollection('blog');
+
+// Define desired post order (most recent first)
+const postOrder = [
+  'drones-vs-democracy',
+  'cost-to-produce-to-zero',
+  'legacy-vs-ai-native-companies',
+  'your-brain-was-the-bottleneck',
+  'ai-will-make-us-dumber'
+];
+
 const blogPosts = allPosts
   .filter(post => !post.data.draft)
   .sort((a, b) => {
-    // Simple date comparison - newer dates should come first
-    const dateA = new Date(a.data.date);
-    const dateB = new Date(b.data.date);
-    return dateB.getTime() - dateA.getTime();
+    const indexA = postOrder.indexOf(a.slug);
+    const indexB = postOrder.indexOf(b.slug);
+    return indexA - indexB;
   });
 ---
 
