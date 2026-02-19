@@ -1,6 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Comments from '../components/Comments.astro';
 
 interface Props {
   title: string;
@@ -17,7 +16,14 @@ const { title, description, date, image } = Astro.props;
     <article class="blog-content">
       <slot />
     </article>
-    <Comments />
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <div class="contact-divider"></div>
+      <p class="contact-text">
+        Have thoughts on this? <a href="/contact" class="contact-link">Get in touch</a>
+      </p>
+    </div>
   </div>
 </BaseLayout>
 
@@ -61,5 +67,31 @@ const { title, description, date, image } = Astro.props;
   .blog-content strong {
     color: var(--color-text);
     font-weight: 600;
+  }
+
+  .contact-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+
+  .contact-divider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin-bottom: 2rem;
+  }
+
+  .contact-text {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .contact-link {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  .contact-link:hover {
+    color: var(--color-warm-accent);
   }
 </style>
