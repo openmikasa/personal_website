@@ -1,6 +1,6 @@
 # Drones vs democracy
 
-March 2026
+February 2026
 
 Why does democracy exist? The answer most people give involves Enlightenment philosophers, constitutional conventions, the long march of human rights. But there's a simpler explanation, one that [political economists](https://www.cambridge.org/core/books/economic-origins-of-dictatorship-and-democracy/3F29DF90519971B183CAA16ED0203507) have been formalizing for decades: democracy exists because the math of violence favored it.
 
