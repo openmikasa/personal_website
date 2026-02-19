@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
             <li>
               <a
                 href={item.href}
-                class={`text-sm font-medium transition-colors duration-200 no-underline`}
+                class={`text-sm font-medium font-mono transition-colors duration-200 no-underline`}
                 style={isActive ? 'color: var(--color-link);' : 'color: var(--color-text);'}
                 onmouseenter="this.style.color='var(--color-link)';"
                 onmouseleave={`this.style.color='${isActive ? 'var(--color-link)' : 'var(--color-text)'}'`}
@@ -54,7 +54,7 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={item.href}
-              class={`block text-sm font-medium transition-colors duration-200 no-underline`}
+              class={`block text-sm font-medium font-mono transition-colors duration-200 no-underline`}
               style={isActive ? 'color: var(--color-link);' : 'color: var(--color-text);'}
               onmouseenter="this.style.color='var(--color-link)';"
               onmouseleave={`this.style.color='${isActive ? 'var(--color-link)' : 'var(--color-text)'}'`}
