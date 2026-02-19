@@ -36,6 +36,6 @@ When a new type of product costs nothing to produce, we keep it free and invent 
 
 There is still a catch. Once costs drop to zero, demand will scale exponentially. But resources cannot. We already [exceed Earth's sustainable capacity](https://www.resilience.org/stories/2025-03-21/what-earth-supplies-and-what-we-need-carrying-capacity-as-a-guide-for-regional-and-planetary-governance-and-sustainability/) by 60%. recycling has [thermodynamic limits](https://climate.sustainability-directory.com/term/thermodynamic-limits/)
 
-I don't know how this resolves. Maybe global coordination, AI-managed resource allocation, maybe we reach near-infinite energy, then cost to space harvesting and transmutation goes to zero too. Who knows, cost to research is going to zero too. Let's be optimistic.
+I don't know how this resolves. Maybe global coordination, AI-managed resource allocation, maybe we reach near-infinite energy, then cost to space harvesting and transmutation goes to zero too. Who knows, cost to research is going to zero too anyway. Let's be optimistic.
 
 Cost to produce to zero.
