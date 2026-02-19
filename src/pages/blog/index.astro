@@ -1,0 +1,72 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const blogPosts = [
+  {
+    id: 5,
+    title: 'Democracy was only physics',
+    date: 'March 2026',
+    slug: 'democracy-was-only-physics'
+  },
+  {
+    id: 4,
+    title: 'Cost to produce to zero',
+    date: 'February 2026',
+    slug: 'cost-to-produce-to-zero'
+  },
+  {
+    id: 3,
+    title: 'Legacy vs AI-native companies',
+    date: 'January 2026',
+    slug: 'legacy-vs-ai-native-companies'
+  },
+  {
+    id: 2,
+    title: 'Your brain was the bottleneck',
+    date: 'January 2026',
+    slug: 'your-brain-was-the-bottleneck'
+  },
+  {
+    id: 1,
+    title: 'AI will make us dumber, until we get smarter.',
+    date: 'December 2025',
+    slug: 'ai-will-make-us-dumber'
+  }
+];
+---
+
+<PageLayout
+  title="Blog - Ramy Ghorayeb"
+  description="Thoughts and essays on AI, technology, and the future"
+>
+  <div class="fade-in blog-list">
+    <!-- Page Title -->
+    <h1 class="text-4xl md:text-5xl font-bold mb-16">Blog</h1>
+
+    <!-- Blog Posts List -->
+    <section class="max-w-2xl">
+      <div class="space-y-8">
+        {blogPosts.map((post) => (
+          <article class="border-b pb-8" style="border-color: var(--color-border);">
+            <a href={`/blog/${post.slug}`} class="block group">
+              <h2 class="text-2xl font-semibold mb-2 group-hover:underline" style="color: var(--color-text);">
+                {post.title}
+              </h2>
+              <time class="text-sm" style="color: var(--color-text-muted);">
+                {post.date}
+              </time>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</PageLayout>
+
+<style is:global>
+  /* Override lowercase for blog list titles */
+  .blog-list h2,
+  .blog-list time {
+    text-transform: none !important;
+  }
+</style>
