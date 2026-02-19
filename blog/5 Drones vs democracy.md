@@ -1,4 +1,4 @@
-# Democracy was only physics
+# Drones vs democracy
 
 March 2026
 
