@@ -30,6 +30,14 @@ import PageLayout from '../../layouts/PageLayout.astro';
 .cover-container:hover::after {
   opacity: 1;
 }
+
+/* Normalize cover image sizes with object-fit */
+.cover-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top center;
+}
 </style>
 
 <PageLayout
@@ -180,27 +188,36 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <!-- Books Section -->
         <div class="mb-16">
           <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Books</h2>
-          <div class="grid grid-cols-5 gap-4">
+          <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Albert Camus - The Stranger (1942)">
-              <img src="/images/recommendations/books/the-stranger.jpg" alt="The Stranger" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/books/the-stranger.jpg" alt="The Stranger" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Chuck Palahniuk - Stranger Than Fiction (2004)">
-              <img src="/images/recommendations/books/stranger-than-fiction.jpg" alt="Stranger Than Fiction" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/books/stranger-than-fiction.jpg" alt="Stranger Than Fiction" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            </div>
+            <div class="cover-container" data-info="Cizia Zykë - Oro (1997)">
+              <img src="/images/recommendations/books/oro.jpg" alt="Oro" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Liu Cixin - Death's End (2010)">
-              <img src="/images/recommendations/books/deaths-end.jpg" alt="Death's End" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/books/deaths-end.jpg" alt="Death's End" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            </div>
+            <div class="cover-container" data-info="Philip K. Dick - Ubik (1969)">
+              <img src="/images/recommendations/books/ubik.jpg" alt="Ubik" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Robert L Moore & Douglas Gillette - King, Warrior, Magician, Lover (1990)">
-              <img src="/images/recommendations/books/king-warrior-magician-lover.jpg" alt="King, Warrior, Magician, Lover" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/books/king-warrior-magician-lover.jpg" alt="King, Warrior, Magician, Lover" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Thomas Römer - The Invention of God (2015)">
-              <img src="/images/recommendations/books/invention-of-god.jpg" alt="The Invention of God" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/books/invention-of-god.jpg" alt="The Invention of God" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Nikola Tesla - My Inventions (1919)">
-              <img src="https://m.media-amazon.com/images/I/61z9kaTURwL._SL1500_.jpg" alt="My Inventions" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/N.Tesla.JPG/440px-N.Tesla.JPG" alt="My Inventions" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            </div>
+            <div class="cover-container" data-info="Khalil Gibran - The Collected Works (1970)">
+              <img src="/images/recommendations/books/khalil-gibran-collected-works.jpg" alt="The Collected Works" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Jack Kerouac - On the Road (1957)">
-              <img src="/images/recommendations/books/on-the-road.jpg" alt="On the Road" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/books/on-the-road.jpg" alt="On the Road" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
           </div>
         </div>
@@ -208,27 +225,36 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <!-- Mangas/Comic Books Section -->
         <div class="mb-16">
           <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Mangas / Comic Books</h2>
-          <div class="grid grid-cols-5 gap-4">
+          <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Kentaro Miura - Berserk (1989)">
-              <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Berserk_%281997_anime%29%2C_DVD_cover_1.jpg" alt="Berserk" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Berserk_%281997_anime%29%2C_DVD_cover_1.jpg" alt="Berserk" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            </div>
+            <div class="cover-container" data-info="Tom Taylor - Injustice: Gods Among Us (2013)">
+              <img src="https://images.penguinrandomhouse.com/cover/9781779528001" alt="Injustice: Gods Among Us" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            </div>
+            <div class="cover-container" data-info="Alan Moore - Watchmen (1987)">
+              <img src="/images/recommendations/mangas/watchmen.jpg" alt="Watchmen" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Jiro Taniguchi - The Summit of the Gods (2000)">
-              <img src="/images/recommendations/mangas/summit-of-the-gods.jpg" alt="The Summit of the Gods" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/mangas/summit-of-the-gods.jpg" alt="The Summit of the Gods" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Katsuhiro Ōtomo - Akira (1982)">
-              <img src="/images/recommendations/mangas/maus.jpg" alt="Akira" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Akira_%281988_poster%29.jpg" alt="Akira" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Takehiko Inoue - Real (1999)">
-              <img src="/images/recommendations/mangas/real.jpg" alt="Real" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/mangas/real.jpg" alt="Real" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+            </div>
+            <div class="cover-container" data-info="Toru Fujisawa - Great Teacher Onizuka (1997)">
+              <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/GTO_volume_1.jpg" alt="Great Teacher Onizuka" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Harold Sakuishi - Beck (1999)">
-              <img src="https://images.epagine.fr/317/9782413043317_1_75.jpg" alt="Beck" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="https://images.epagine.fr/317/9782413043317_1_75.jpg" alt="Beck" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Hiroya Oku - Gantz (2000)">
-              <img src="/images/recommendations/mangas/gantz.jpg" alt="Gantz" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/mangas/gantz.jpg" alt="Gantz" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Don Rosa - The Life and Times of Scrooge McDuck (1994)">
-              <img src="/images/recommendations/mangas/scrooge-mcduck.jpg" alt="The Life and Times of Scrooge McDuck" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/mangas/scrooge-mcduck.jpg" alt="The Life and Times of Scrooge McDuck" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
           </div>
         </div>
@@ -236,36 +262,36 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <!-- Music Section -->
         <div class="mb-16">
           <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Music</h2>
-          <div class="grid grid-cols-5 gap-4">
+          <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Mr Bungle - California (1999)">
-              <img src="/images/recommendations/music/california.jpg" alt="California" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/california.jpg" alt="California" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Swans - The Seer (2012)">
-              <img src="/images/recommendations/music/the-seer.jpg" alt="The Seer" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/the-seer.jpg" alt="The Seer" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Nirvana - MTV Unplugged in New York (1994)">
-              <img src="/images/recommendations/music/mtv-unplugged.jpg" alt="MTV Unplugged" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/mtv-unplugged.jpg" alt="MTV Unplugged" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Devin Townsend - Infinity (1998)">
-              <img src="/images/recommendations/music/infinity.jpg" alt="Infinity" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/infinity.jpg" alt="Infinity" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Steven Wilson - Insurgentes (2008)">
-              <img src="/images/recommendations/music/insurgentes.jpg" alt="Insurgentes" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/insurgentes.jpg" alt="Insurgentes" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Massive Attack - Mezzanine (1998)">
-              <img src="/images/recommendations/music/mezzanine.jpg" alt="Mezzanine" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/mezzanine.jpg" alt="Mezzanine" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Klub des Loosers - La Fin de l'Espèce (2010)">
-              <img src="/images/recommendations/music/la-fin-de-lespece.jpg" alt="La Fin de l'Espèce" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/la-fin-de-lespece.jpg" alt="La Fin de l'Espèce" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Björk - Homogenic (1997)">
-              <img src="/images/recommendations/music/homogenic.jpg" alt="Homogenic" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/homogenic.jpg" alt="Homogenic" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Max Richter - Memoryhouse (2002)">
-              <img src="/images/recommendations/music/memoryhouse.jpg" alt="Memoryhouse" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/memoryhouse.jpg" alt="Memoryhouse" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Sigur Rós - Valtari (2012)">
-              <img src="/images/recommendations/music/valtari.jpg" alt="Valtari" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/music/valtari.jpg" alt="Valtari" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
           </div>
         </div>
@@ -273,36 +299,36 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <!-- Movies Section -->
         <div class="mb-16">
           <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Movies</h2>
-          <div class="grid grid-cols-5 gap-4">
+          <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Paul Thomas Anderson - Inherent Vice (2014)">
-              <img src="/images/recommendations/movies/inherent-vice.jpg" alt="Inherent Vice" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/inherent-vice.jpg" alt="Inherent Vice" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Sam Mendes - American Beauty (1999)">
-              <img src="/images/recommendations/movies/american-beauty.jpg" alt="American Beauty" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/american-beauty.jpg" alt="American Beauty" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Jan Kounen - 99 Francs (2007)">
-              <img src="/images/recommendations/movies/99-francs.jpg" alt="99 Francs" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/99-francs.jpg" alt="99 Francs" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Pete Docter - Soul (2020)">
-              <img src="/images/recommendations/movies/soul.jpg" alt="Soul" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/soul.jpg" alt="Soul" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Quentin Dupieux - Wrong (2012)">
-              <img src="/images/recommendations/movies/wrong.jpg" alt="Wrong" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/wrong.jpg" alt="Wrong" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Julia Ducournau - Grave (2016)">
-              <img src="/images/recommendations/movies/grave.jpg" alt="Grave" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/grave.jpg" alt="Grave" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Alejandro González Iñárritu - Birdman (2014)">
-              <img src="/images/recommendations/movies/birdman.jpg" alt="Birdman" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/birdman.jpg" alt="Birdman" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Matt Ross - Captain Fantastic (2016)">
-              <img src="/images/recommendations/movies/captain-fantastic.jpg" alt="Captain Fantastic" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/captain-fantastic.jpg" alt="Captain Fantastic" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Harmony Korine - Spring Breakers (2012)">
-              <img src="/images/recommendations/movies/spring-breakers.jpg" alt="Spring Breakers" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/spring-breakers.jpg" alt="Spring Breakers" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Kinji Fukasaku - Battle Royale (2000)">
-              <img src="/images/recommendations/movies/battle-royale.jpg" alt="Battle Royale" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/movies/battle-royale.jpg" alt="Battle Royale" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
           </div>
         </div>
@@ -310,21 +336,21 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <!-- TV Shows Section -->
         <div class="mb-16">
           <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">TV Shows</h2>
-          <div class="grid grid-cols-5 gap-4">
+          <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Damon Lindelof - The Leftovers (2014)">
-              <img src="/images/recommendations/tv-shows/the-leftovers.jpg" alt="The Leftovers" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/tv-shows/the-leftovers.jpg" alt="The Leftovers" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Christopher Cantwell - Halt and Catch Fire (2014)">
-              <img src="/images/recommendations/tv-shows/halt-and-catch-fire.jpg" alt="Halt and Catch Fire" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/tv-shows/halt-and-catch-fire.jpg" alt="Halt and Catch Fire" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Paolo Sorrentino - The Young Pope (2016)">
-              <img src="/images/recommendations/tv-shows/the-young-pope.jpg" alt="The Young Pope" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/tv-shows/the-young-pope.jpg" alt="The Young Pope" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Nathan Fielder - The Rehearsal (2022)">
-              <img src="/images/recommendations/tv-shows/the-rehearsal.jpg" alt="The Rehearsal" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="/images/recommendations/tv-shows/the-rehearsal.jpg" alt="The Rehearsal" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
             <div class="cover-container" data-info="Dennis Kelly - Utopia (2013)">
-              <img src="/images/recommendations/tv-shows/man-seeking-woman.jpg" alt="Utopia" class="w-full h-auto rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
+              <img src="https://upload.wikimedia.org/wikipedia/en/7/78/Utopia_series_1_DVD_cover.jpg" alt="Utopia" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
             </div>
           </div>
         </div>
