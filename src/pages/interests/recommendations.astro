@@ -62,23 +62,23 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
         <!-- Current Reads Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-4" style="color: var(--color-text);">Current Reads</h2>
-          <p class="text-sm mb-6" style="color: var(--color-text-secondary);">
+          <h2 class="text-2xl font-semibold mb-4 text-primary">Current Reads</h2>
+          <p class="text-sm mb-6 text-secondary">
             Continuously updated through my RSS feed
           </p>
 
           <!-- Loading State -->
-          <div id="books-loading" class="text-lg" style="color: var(--color-text-secondary);">
+          <div id="books-loading" class="text-lg text-secondary">
             Loading books<span id="loading-dots">.</span>
           </div>
 
           <!-- Error State -->
-          <div id="books-error" class="hidden text-lg" style="color: var(--color-text-secondary);">
+          <div id="books-error" class="hidden text-lg text-secondary">
             Unable to load books. Please try again later.
           </div>
 
           <!-- Books List -->
-          <ul id="books-container" class="hidden list-none space-y-2" style="color: var(--color-text);">
+          <ul id="books-container" class="hidden list-none space-y-2 text-primary">
             <!-- Books will be inserted here -->
           </ul>
         </div>
@@ -148,23 +148,21 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
                 // Create bullet point
                 const listItem = document.createElement('li');
-                listItem.className = 'text-lg';
-                listItem.style.color = 'var(--color-text)';
+                listItem.className = 'text-lg text-primary';
 
                 // Format: Author - Title (added on Date)
                 const bookLink = document.createElement('a');
                 bookLink.href = link;
                 bookLink.target = '_blank';
                 bookLink.rel = 'noopener noreferrer';
-                bookLink.className = 'hover:underline';
-                bookLink.style.color = 'var(--color-text)';
+                bookLink.className = 'hover:underline text-primary';
                 bookLink.textContent = `${author} - ${title}`;
 
                 listItem.appendChild(bookLink);
 
                 if (dateAdded) {
                   const dateSpan = document.createElement('span');
-                  dateSpan.style.color = 'var(--color-text-secondary)';
+                  dateSpan.className = 'text-secondary';
                   dateSpan.textContent = ` (added on ${dateAdded})`;
                   listItem.appendChild(dateSpan);
                 }
@@ -195,7 +193,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
         <!-- Books Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Books</h2>
+          <h2 class="text-2xl font-semibold mb-8 text-primary">Books</h2>
           <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Albert Camus - The Stranger (1942)">
               <img src="/images/recommendations/books/the-stranger.jpg" alt="The Stranger" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
@@ -232,7 +230,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
         <!-- Mangas/Comic Books Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Mangas / Comic Books</h2>
+          <h2 class="text-2xl font-semibold mb-8 text-primary">Mangas / Comic Books</h2>
           <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Kentaro Miura - Berserk (1989)">
               <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Berserk_%281997_anime%29%2C_DVD_cover_1.jpg" alt="Berserk" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
@@ -269,7 +267,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
         <!-- Music Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Music</h2>
+          <h2 class="text-2xl font-semibold mb-8 text-primary">Music</h2>
           <div class="grid grid-cols-5 gap-4 cover-grid-square">
             <div class="cover-container" data-info="Mr Bungle - California (1999)">
               <img src="/images/recommendations/music/california.jpg" alt="California" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
@@ -306,7 +304,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
         <!-- Movies Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">Movies</h2>
+          <h2 class="text-2xl font-semibold mb-8 text-primary">Movies</h2>
           <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Paul Thomas Anderson - Inherent Vice (2014)">
               <img src="/images/recommendations/movies/inherent-vice.jpg" alt="Inherent Vice" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />
@@ -343,7 +341,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
         <!-- TV Shows Section -->
         <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8" style="color: var(--color-text);">TV Shows</h2>
+          <h2 class="text-2xl font-semibold mb-8 text-primary">TV Shows</h2>
           <div class="grid grid-cols-5 gap-4 cover-grid">
             <div class="cover-container" data-info="Damon Lindelof - The Leftovers (2014)">
               <img src="/images/recommendations/tv-shows/the-leftovers.jpg" alt="The Leftovers" class="w-full rounded shadow-md hover:scale-105 transition-transform" loading="lazy" />

@@ -1,6 +1,8 @@
-# Your brain was the bottleneck
-
-January 2026
+---
+title: "Your brain was the bottleneck"
+description: "Understanding how AI tools remove cognitive load and enable sustained peak performance"
+date: "January 2026"
+---
 
 Mark Zuckerberg wears the same gray t-shirt every day. It sounds like a quirk, but when he explained it in [2014](https://www.cnbc.com/2014/11/07/5-things-we-learned-in-mark-zuckerbergs-facebook-qa.html), the reasoning was precise: "I really want to clear my life so that I have to make as few decisions as possible about anything except how to best serve this community." This sounds like eccentric CEO behavior, but there's real science behind it.
 
@@ -16,7 +18,7 @@ Here's what surprised me most: I can work for hours without getting tired.
 
 The slump after a highly intellectual task, that familiar crash where your brain goes fuzzy, doesn't hit the same way. My cognitive budget is being spent on what matters: evaluating ideas, spotting problems, providing direction.
 
-I think we're seeing the beginning of a fundamental shift. For decades, productivity tools helped us do things faster. AI tools are different. They don't just reduce the time per task. They reduce the cognitive load per task. And that changes what's possible. 
+I think we're seeing the beginning of a fundamental shift. For decades, productivity tools helped us do things faster. AI tools are different. They don't just reduce the time per task. They reduce the cognitive load per task. And that changes what's possible.
 
 The feeling of having unlimited mental energy is genuinely addictive and everyone I talked to seems to feel the same way about these AI tools. People wonder why everyone working with Claude Code or Codex is obsessed with it. This is why. It's not just that they're fast. It's that they remove the tax on thinking.
 

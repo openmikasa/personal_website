@@ -1,6 +1,8 @@
-# Cost to produce to zero
-
-February 2026
+---
+title: "Cost to produce to zero"
+description: "What happens when AI and robotics drive the marginal cost of production to zero"
+date: "February 2026"
+---
 
 When would you want to live? Not just for a year, forever.
 
@@ -18,7 +20,7 @@ What happened? Cost to produce hits zero. No one can charge what someone else ca
 
 Now AI is doing the same thing to intellectual work. What cost a consulting team yesterday costs a single person with [Claude Code](https://www.anthropic.com/claude-code) today. Writing, analysis, coding, design, research: the marginal cost will soon approach zero. And this shift is distributed, anyone can access it for free.
 
-But AI doesn't stop at intellectual work. 
+But AI doesn't stop at intellectual work.
 
 [Jensen Huang calls this moment](https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/physical-ai-humanoid-robots.html) "the ChatGPT moment for physical AI." Once reasoning costs nothing, robotics follows. And once robots can marginally manufacture for free, physical production costs will approach zero too.
 
@@ -30,9 +32,9 @@ The only thing that will still cost you will probably be land. You want to buy e
 
 So how does anyone make money?
 
-Fortnite shows an example of answer. The game is free. Completely free. Yet it has generated over $42 billion in lifetime revenue. How? Skins for your character, stylish weapons, funny emotes. All cosmetic. All about self-expression and status. 
+Fortnite shows an example of answer. The game is free. Completely free. Yet it has generated over $42 billion in lifetime revenue. How? Skins for your character, stylish weapons, funny emotes. All cosmetic. All about self-expression and status.
 
-In the software world, we used to think of games as products you bought in a box. But the internet changed the unit economics. Since the marginal cost of serving one more user is effectively zero, the rational move is to move to [Freemium](https://medium.com/design-bootcamp/paying-the-price-the-ethical-crisis-in-freemium-game-design-9637d18baa23) and make the game free to get everyone in the door. You don't need a thousand people; you need 99% people to play for free so that the 1% (the "whales") spend $10,000 each. It’s a shift from selling a commodity to selling status.
+In the software world, we used to think of games as products you bought in a box. But the internet changed the unit economics. Since the marginal cost of serving one more user is effectively zero, the rational move is to move to [Freemium](https://medium.com/design-bootcamp/paying-the-price-the-ethical-crisis-in-freemium-game-design-9637d18baa23) and make the game free to get everyone in the door. You don't need a thousand people; you need 99% people to play for free so that the 1% (the "whales") spend $10,000 each. It's a shift from selling a commodity to selling status.
 
 When a new type of product costs nothing to produce, we keep it free and invent new ways to monetize it.
 

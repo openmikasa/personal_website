@@ -1,38 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 
-const blogPosts = [
-  {
-    id: 5,
-    title: 'Drones vs democracy',
-    date: 'February 2026',
-    slug: 'drones-vs-democracy'
-  },
-  {
-    id: 4,
-    title: 'Cost to produce to zero',
-    date: 'February 2026',
-    slug: 'cost-to-produce-to-zero'
-  },
-  {
-    id: 3,
-    title: 'Legacy vs AI-native companies',
-    date: 'January 2026',
-    slug: 'legacy-vs-ai-native-companies'
-  },
-  {
-    id: 2,
-    title: 'Your brain was the bottleneck',
-    date: 'January 2026',
-    slug: 'your-brain-was-the-bottleneck'
-  },
-  {
-    id: 1,
-    title: 'AI will make us dumber, until we get smarter',
-    date: 'December 2025',
-    slug: 'ai-will-make-us-dumber'
-  }
-];
+// Get all blog posts and sort by date (newest first)
+const allPosts = await getCollection('blog');
+const blogPosts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => {
+    // Simple date comparison - newer dates should come first
+    const dateA = new Date(a.data.date);
+    const dateB = new Date(b.data.date);
+    return dateB.getTime() - dateA.getTime();
+  });
 ---
 
 <PageLayout
@@ -45,7 +24,7 @@ const blogPosts = [
 
     <!-- RSS Link -->
     <div class="mb-16">
-      <a href="/blog/rss.xml" class="text-sm hover:underline" style="color: var(--color-text-secondary);" target="_blank" rel="noopener noreferrer">
+      <a href="/blog/rss.xml" class="text-sm hover:underline text-secondary" target="_blank" rel="noopener noreferrer">
         Subscribe via RSS
       </a>
     </div>
@@ -54,37 +33,37 @@ const blogPosts = [
     <section class="max-w-2xl">
       <div class="space-y-4">
         {blogPosts.map((post) => (
-          <article class="border-b pb-4" style="border-color: var(--color-border);">
+          <article class="border-b pb-4 border-default">
             <a href={`/blog/${post.slug}`} class="block group">
-              <h2 class="text-lg font-semibold group-hover:underline" style="color: var(--color-text);">
-                {post.title}
+              <h2 class="text-lg font-semibold group-hover:underline text-primary">
+                {post.data.title}
               </h2>
-              <time class="text-sm" style="color: var(--color-text-muted);">
-                {post.date}
+              <time class="text-sm text-secondary">
+                {post.data.date}
               </time>
             </a>
           </article>
         ))}
 
         <!-- External Archive Links -->
-        <article class="border-b pb-4" style="border-color: var(--color-border);">
+        <article class="border-b pb-4 border-default">
           <a href="https://drive.google.com/drive/folders/1NwDriCu5_SupUEnB3GHi92BZaHF0pXoV?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block group">
-            <h2 class="text-lg font-semibold group-hover:underline" style="color: var(--color-text);">
+            <h2 class="text-lg font-semibold group-hover:underline text-primary">
               Civic tech
             </h2>
-            <time class="text-sm" style="color: var(--color-text-muted);">
-              2018 <span style="color: var(--color-text-secondary);">(Google drive link)</span>
+            <time class="text-sm text-secondary">
+              2018 <span class="text-secondary">(Google drive link)</span>
             </time>
           </a>
         </article>
 
-        <article class="border-b pb-4" style="border-color: var(--color-border);">
+        <article class="border-b pb-4 border-default">
           <a href="https://drive.google.com/drive/folders/16kztSKtpdULc-24rJgf8cY4VU55M0AtS?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block group">
-            <h2 class="text-lg font-semibold group-hover:underline" style="color: var(--color-text);">
+            <h2 class="text-lg font-semibold group-hover:underline text-primary">
               Old tech blog
             </h2>
-            <time class="text-sm" style="color: var(--color-text-muted);">
-              2017 <span style="color: var(--color-text-secondary);">(Google drive link)</span>
+            <time class="text-sm text-secondary">
+              2017 <span class="text-secondary">(Google drive link)</span>
             </time>
           </a>
         </article>

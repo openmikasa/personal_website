@@ -1,4 +1,14 @@
 // Content collections configuration
-// Add collections here as your site grows
+import { defineCollection, z } from 'astro:content';
 
-export const collections = {};
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+    draft: z.boolean().optional().default(false),
+  }),
+});
+
+export const collections = { blog };

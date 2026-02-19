@@ -1,6 +1,8 @@
-# Legacy vs AI-native companies
-
-January 2026
+---
+title: "Legacy vs AI-native companies"
+description: "Why manufacturing becomes the only strategic asset as AI commoditizes intellectual work"
+date: "January 2026"
+---
 
 There's a thought experiment I like to return to. Imagine we're in [Three Body Problem](https://en.wikipedia.org/wiki/The_Three-Body_Problem_(novel)). An alien civilization threatens to freeze our technology. Models stop improving. The AI we have today is the AI we'll have forever. Would the world still transform?
 

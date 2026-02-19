@@ -7,12 +7,22 @@ export default {
         'notion-bg': '#FAFAF8',
         'notion-text': '#3A3632',
         'notion-text-secondary': '#5E5A54',
-        'notion-text-muted': '#8B8680',
         'notion-accent': '#2D2A26',
         'notion-link': '#2D2A26',
         'notion-border': '#E8E6E1',
         'notion-hover': '#F5F4F1',
         'notion-warm-accent': '#A68A6F',
+      },
+      textColor: {
+        'primary': 'var(--color-text)',
+        'secondary': 'var(--color-text-secondary)',
+        'link': 'var(--color-link)',
+      },
+      borderColor: {
+        'default': 'var(--color-border)',
+      },
+      backgroundColor: {
+        'hover': 'var(--color-hover)',
       },
       fontFamily: {
         sans: ['Urbanist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],

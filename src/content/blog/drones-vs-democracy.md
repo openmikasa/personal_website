@@ -1,12 +1,14 @@
-# Drones vs democracy
-
-February 2026
+---
+title: "Drones vs democracy"
+description: "How autonomous weapons technology may fundamentally alter the balance of power that makes democracy possible"
+date: "February 2026"
+---
 
 Why does democracy exist? The answer most people give involves Enlightenment philosophers, constitutional conventions, the long march of human rights. But there's a simpler explanation, one that [political economists](https://www.cambridge.org/core/books/economic-origins-of-dictatorship-and-democracy/3F29DF90519971B183CAA16ED0203507) have been formalizing for decades: democracy exists because the math of violence favored it.
 
-Throughout history, rulers faced one absolute constraint. If enough people wanted them gone, they were gone. No army could stop a determined majority. The weapons were too simple, the numbers too large. 
+Throughout history, rulers faced one absolute constraint. If enough people wanted them gone, they were gone. No army could stop a determined majority. The weapons were too simple, the numbers too large.
 
-Daron Acemoglu and James Robinson [won the Nobel Prize](https://www.allazimuth.com/2025/04/07/commentary-democracy-democratization-institutions-and-inequality-nobel-winning-insights-from-daron-acemoglu-and-his-collaborators/) in 2024 for formalizing this insight: democracy emerges when the costs of repression exceed the costs of sharing power, and when citizens can credibly threaten revolution. Throughout history, that credibility came from physics. 
+Daron Acemoglu and James Robinson [won the Nobel Prize](https://www.allazimuth.com/2025/04/07/commentary-democracy-democratization-institutions-and-inequality-nobel-winning-insights-from-daron-acemoglu-and-his-collaborators/) in 2024 for formalizing this insight: democracy emerges when the costs of repression exceed the costs of sharing power, and when citizens can credibly threaten revolution. Throughout history, that credibility came from physics.
 
 Mohammed bin Salman has often framed his "Saudi Vision 2030" not just as an economic shift, but as a survival necessity to meet the demands of a young, restless population. He is  aware that the social contract in Saudi Arabia is shifting from state handouts to quality of life and economic opportunity.
 
