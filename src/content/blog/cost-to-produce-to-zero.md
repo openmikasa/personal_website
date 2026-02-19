@@ -1,7 +1,7 @@
 ---
 title: "Cost to produce to zero"
 description: "What happens when AI and robotics drive the marginal cost of production to zero"
-date: "February 10, 2026"
+date: "February 2026"
 ---
 
 When would you want to live? Not just for a year, forever.
