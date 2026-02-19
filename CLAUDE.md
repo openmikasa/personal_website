@@ -46,10 +46,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 📁 File Structure Guidelines
 * `CLAUDE.md`: This file (Project source of truth)
+* `blog/`: Markdown source files for blog posts (numbered by ID)
 * `src/content/projects/`: Project Markdown files with frontmatter
 * `src/components/`: Reusable Astro components
-* `src/layouts/`: Page layout templates (BaseLayout, PageLayout, ProjectLayout)
-* `src/pages/`: File-based routing (index, about, contact, projects)
+* `src/layouts/`: Page layout templates (BaseLayout, PageLayout, BlogLayout)
+* `src/pages/`: File-based routing (index, about, contact, projects, blog)
+* `src/pages/blog/`: Blog post pages and RSS feed
 * `src/data/`: TypeScript data files (navigation, skills, social links)
 * `src/styles/global.css`: Tailwind + Notion-inspired theme
 * `src/assets/images/projects/`: Project screenshots and thumbnails
@@ -59,9 +61,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## ⚠️ Lessons Learned & Constraints
 * **[Typography]** Always use Inter font family. Never use other fonts without discussion. | This is part of the Notion-inspired design system.
 * **[Content Updates]** To add projects, create Markdown files in `src/content/projects/` with required frontmatter fields (title, description, order, featured, tags, etc.). | File-based content management for easy AI updates.
+* **[Blog Posts]** Blog content uses `BlogLayout.astro` which overrides the global lowercase CSS (`text-transform: none !important`) to preserve proper capitalization. Update blog index, RSS feed, and create/update markdown source when adding posts. | Dual-source system: markdown in `/blog` for version control, Astro pages in `/src/pages/blog` for rendering.
 * **[Formspree Setup]** Contact form ID is stored in `src/pages/contact.astro` as `https://formspree.io/f/YOUR_FORM_ID`. Update this placeholder before going live. | Formspree handles contact form submissions without exposing email.
 * **[Design System]** Use Notion color palette defined in `src/styles/global.css` (--color-bg, --color-text, --color-accent, --color-border, --color-hover). | Maintains consistent Notion-inspired aesthetic throughout the site.
 * **[Components]** All Astro components use kebab-case for file names and follow strict TypeScript typing. | Ensures code consistency and type safety.
+* **[Analytics]** Vercel Analytics and Speed Insights are integrated in `BaseLayout.astro` with production-only injection using `import.meta.env.PROD`. No configuration files needed - managed via Vercel dashboard. | Keep analytics code in BaseLayout only.
+* **[Navigation]** Navigation order is: Home → Blog → Work → Interests → Contact. Update `src/data/navigation.ts` to change menu items. | Consistent menu across all pages.
+* **[External Links]** For archive/external content, add descriptive labels outside hyperlinks (e.g., "(Google drive link)", "(WIP)") using non-linked spans for clarity. | Improves UX by setting expectations.
 
 ---
 
