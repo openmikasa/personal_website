@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com', // Update with actual domain
+  site: 'https://ramyg.vercel.app',
   output: 'static',
   integrations: [
     tailwind({

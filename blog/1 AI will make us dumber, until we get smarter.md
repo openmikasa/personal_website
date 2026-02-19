@@ -1,4 +1,4 @@
-# AI will make us dumber, until we get smarter.
+# AI will make us dumber, until we get smarter
 
 December 2025
 

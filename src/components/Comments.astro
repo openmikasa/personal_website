@@ -1,0 +1,47 @@
+---
+// Giscus comments component - uses GitHub Discussions
+// Requires: GitHub repo with Discussions enabled
+---
+
+<div class="comments-section">
+  <div class="comments-divider"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="openmikasa/personal_website"
+    data-repo-id="YOUR_REPO_ID"
+    data-category="Blog Comments"
+    data-category-id="YOUR_CATEGORY_ID"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+
+<style>
+  .comments-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+
+  .comments-divider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin-bottom: 2rem;
+  }
+
+  /* Override giscus theme to match site */
+  :global(.giscus) {
+    font-family: var(--font-body) !important;
+  }
+
+  :global(.giscus-frame) {
+    border: none !important;
+  }
+</style>
