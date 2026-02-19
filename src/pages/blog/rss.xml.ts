@@ -4,12 +4,6 @@ import type { APIContext } from 'astro';
 export async function GET(context: APIContext) {
   const blogPosts = [
     {
-      title: 'Drones vs democracy',
-      description: 'How autonomous weapons might fundamentally change the physics that made democracy possible',
-      pubDate: new Date('2026-03-01'),
-      link: '/blog/drones-vs-democracy',
-    },
-    {
       title: 'Cost to produce to zero',
       description: 'What happens when AI and robotics drive production costs to zero',
       pubDate: new Date('2026-02-01'),
