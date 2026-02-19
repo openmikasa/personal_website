@@ -3,8 +3,6 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import { inject } from '@vercel/analytics';
-import { injectSpeedInsights } from '@vercel/speed-insights';
 
 interface Props {
   title: string;
@@ -13,12 +11,7 @@ interface Props {
 }
 
 const { title, description, image } = Astro.props;
-
-// Inject Vercel Analytics and Speed Insights only in production
-if (import.meta.env.PROD) {
-  inject();
-  injectSpeedInsights();
-}
+const isProd = import.meta.env.PROD;
 ---
 
 <!DOCTYPE html>
@@ -32,5 +25,15 @@ if (import.meta.env.PROD) {
       <slot />
     </main>
     <Footer />
+
+    {isProd && (
+      <script>
+        import { inject } from '@vercel/analytics';
+        import { injectSpeedInsights } from '@vercel/speed-insights';
+
+        inject();
+        injectSpeedInsights();
+      </script>
+    )}
   </body>
 </html>
