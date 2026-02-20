@@ -89,9 +89,10 @@
     @apply underline;
   }
 
-  /* Strong tags should use primary text color */
-  strong {
-    color: var(--color-text);
+  /* Strong tags should always use primary text color, even inside text-secondary elements */
+  strong,
+  .text-secondary strong {
+    color: var(--color-text) !important;
     font-weight: 600;
   }
 
