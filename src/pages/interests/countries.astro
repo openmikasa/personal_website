@@ -175,9 +175,9 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
       const countries = topojson.feature(worldData, worldData.objects.countries);
 
-      // Get text color from CSS variable
+      // Get colors from CSS variables (theme-aware)
       const textColor = getComputedStyle(document.documentElement).getPropertyValue('--color-text').trim();
-      const greyColor = '#E8E6E1';
+      const borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-border').trim();
 
       g.selectAll('path')
         .data(countries.features)
@@ -188,9 +188,12 @@ import PageLayout from '../../layouts/PageLayout.astro';
           // Check if country is visited
           const countryId = d.id;
           const countryCode = getCountryCode(countryId);
-          return visitedCountries.has(countryCode) ? textColor : greyColor;
+          return visitedCountries.has(countryCode) ? textColor : borderColor;
         })
-        .attr('stroke', '#FFFFFF')
+        .attr('stroke', () => {
+          const theme = document.documentElement.getAttribute('data-theme');
+          return theme === 'dark' ? '#000000' : '#FFFFFF';
+        })
         .attr('stroke-width', 0.5)
         .style('cursor', 'pointer')
         .on('mouseover', function(event, d) {

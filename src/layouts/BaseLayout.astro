@@ -17,6 +17,19 @@ const isProd = import.meta.env.PROD;
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      // FOUC prevention: Set theme before page renders
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <BaseHead title={title} description={description} image={image} />
   </head>
   <body class="min-h-screen flex flex-col">

@@ -27,6 +27,25 @@ const currentPath = Astro.url.pathname;
             </li>
           );
         })}
+
+        <!-- Theme Toggle -->
+        <li>
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-md transition-colors"
+            style="color: var(--color-text);"
+            onmouseenter="this.style.backgroundColor='var(--color-hover)';"
+            onmouseleave="this.style.backgroundColor='transparent';"
+            aria-label="Toggle theme"
+          >
+            <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+        </li>
       </ul>
 
       <!-- Mobile Navigation Toggle -->
@@ -64,6 +83,24 @@ const currentPath = Astro.url.pathname;
           </li>
         );
       })}
+
+      <!-- Mobile Theme Toggle -->
+      <li>
+        <button
+          id="theme-toggle-mobile"
+          class="w-full text-left text-sm font-medium font-mono transition-colors duration-200 flex items-center gap-2"
+          style="color: var(--color-text);"
+          aria-label="Toggle theme"
+        >
+          <svg id="theme-icon-mobile-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg id="theme-icon-mobile-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <span id="theme-label-mobile"></span>
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
@@ -78,24 +115,82 @@ const currentPath = Astro.url.pathname;
     menu?.classList.toggle('flex');
   });
 
+  // Theme toggle functionality
+  function updateThemeIcons() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'light';
+    const sunIcon = document.getElementById('theme-icon-sun');
+    const moonIcon = document.getElementById('theme-icon-moon');
+    const sunIconMobile = document.getElementById('theme-icon-mobile-sun');
+    const moonIconMobile = document.getElementById('theme-icon-mobile-moon');
+    const labelMobile = document.getElementById('theme-label-mobile');
+
+    if (theme === 'dark') {
+      sunIcon?.classList.remove('hidden');
+      moonIcon?.classList.add('hidden');
+      sunIconMobile?.classList.remove('hidden');
+      moonIconMobile?.classList.add('hidden');
+      if (labelMobile) labelMobile.textContent = 'light mode';
+    } else {
+      sunIcon?.classList.add('hidden');
+      moonIcon?.classList.remove('hidden');
+      sunIconMobile?.classList.add('hidden');
+      moonIconMobile?.classList.remove('hidden');
+      if (labelMobile) labelMobile.textContent = 'dark mode';
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    updateThemeIcons();
+    updateGlassmorphism();
+  }
+
+  // Initialize theme icons
+  updateThemeIcons();
+
+  // Add event listeners
+  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
+
   // Glassmorphism on scroll
   const header = document.getElementById('site-header');
 
-  const applyGlassmorphism = () => {
-    if (window.scrollY > 50) {
-      if (header) {
-        header.style.backgroundColor = 'rgba(250, 250, 248, 0.8)';
-        header.style.backdropFilter = 'blur(12px)';
-        header.style.boxShadow = 'var(--shadow-sm)';
+  function updateGlassmorphism() {
+    const applyGlassmorphism = () => {
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (window.scrollY > 50) {
+        if (header) {
+          const bgRgba = theme === 'dark'
+            ? 'rgba(25, 25, 25, 0.8)'
+            : 'rgba(250, 250, 248, 0.8)';
+          header.style.backgroundColor = bgRgba;
+          header.style.backdropFilter = 'blur(12px)';
+          header.style.boxShadow = 'var(--shadow-sm)';
+        }
+      } else {
+        if (header) {
+          header.style.backgroundColor = 'var(--color-bg)';
+          header.style.backdropFilter = 'none';
+          header.style.boxShadow = 'none';
+        }
       }
-    } else {
-      if (header) {
-        header.style.backgroundColor = 'var(--color-bg)';
-        header.style.backdropFilter = 'none';
-        header.style.boxShadow = 'none';
-      }
-    }
-  };
+    };
+
+    return applyGlassmorphism;
+  }
+
+  const applyGlassmorphism = updateGlassmorphism();
 
   // Apply on scroll
   window.addEventListener('scroll', applyGlassmorphism);
