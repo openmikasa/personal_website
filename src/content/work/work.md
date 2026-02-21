@@ -7,7 +7,7 @@ description: "Professional experience and work history"
 
 **Wait & Save: Get a discount by waiting more** - MVP to expansion in 35+ countries - now the #1 largest and most successful product in the US after UberX.
 
-**Priority: Pay more to get a car faster** - Scaled to 50+ countries, doubled trips growth speed - now the #2 premium product globally.
+**Priority: Pay more to get a car faster** - Scaled to 50+ countries, doubled trips growth speed - now the #2 largest premium product globally.
 
 **UberX: Core company product** - Transversal role to redesign the largest and most mature uber AI systems (pricing, matching, UX) around a unified vision to better fit user needs in price/time.
 
