@@ -39,7 +39,7 @@ description: "Professional experience and work history"
 
 ## Others
 
-**YouTube:** Grew 3 channels (180k, 30k and 3k subscribers, >40M views) with a team of scriptwriters and video editors. Now advising content creators and growth strategy.
+**YouTube:** Grew 3 channels (180k, 30k and 3k subscribers, >40M views) leading a team of scriptwriters and video editors. Now advising content creators and growth strategy.
 
 **City Councilor:** Served my childhood town (Longpont sur Orge, France).
 
