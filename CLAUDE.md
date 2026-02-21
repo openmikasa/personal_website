@@ -47,6 +47,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 📁 File Structure Guidelines
 * `CLAUDE.md`: This file (Project source of truth)
 * `src/content/blog/`: Blog posts as Markdown files with frontmatter (using Astro Content Collections)
+* `src/content/work/`: Work history as Markdown (using Astro Content Collections)
 * `src/components/`: Reusable Astro components
 * `src/layouts/`: Page layout templates (BaseLayout, PageLayout, BlogLayout)
 * `src/pages/`: File-based routing (index, about, contact, projects, blog)
@@ -62,7 +63,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 * **[Styling]** Use Tailwind utility classes instead of inline styles. Semantic text color classes (text-primary, text-secondary, text-link) are defined in tailwind.config.mjs. Form inputs use the .form-input utility class. | Enables proper Tailwind tree-shaking and improves maintainability.
 * **[Dark Mode]** Site supports dark/light theme toggling. Theme system uses: (1) CSS variables in global.css for both light and dark themes, (2) `data-theme` attribute on html element, (3) Tailwind `darkMode: 'class'` with `dark:` variants, (4) localStorage persistence (always defaults to light mode, ignoring system preferences), (5) FOUC prevention script in BaseLayout.astro. When adding new components, ensure text uses `text-primary` class or `var(--color-text)`, and add `dark:` variants for hardcoded colors. Strong tags automatically use primary text color via global CSS rule, even inside text-secondary elements. | Maintains warm Notion aesthetic in both themes.
 * **[Blog Posts]** Blog uses Astro Content Collections (src/content/blog/*.md). To add a new post, create a markdown file with frontmatter (title, description, date, draft). The dynamic route ([...slug].astro) handles rendering. Update is automatic - no need to modify index or RSS feed. | Single source of truth for blog content with type-safe metadata.
-* **[Work History]** Work experience is kept inline in src/pages/work.astro (not as a Content Collection). | This approach works well for infrequently updated professional history.
+* **[Work History]** Work experience uses Astro Content Collections (src/content/work/work.md). Edit the markdown file directly for content updates - the page (src/pages/work.astro) handles rendering with custom CSS for styling. | Single source of truth for work content, easy to edit.
 * **[Formspree Setup]** Contact form ID is stored in `src/pages/contact.astro` as `https://formspree.io/f/mwvljpgj`. | Formspree handles contact form submissions without exposing email.
 * **[Design System]** Use Notion color palette defined in `src/styles/global.css` (--color-bg, --color-text, --color-accent, --color-border, --color-hover). Access via Tailwind classes (text-primary, text-secondary, etc.) or CSS variables for special cases. | Maintains consistent Notion-inspired aesthetic throughout the site.
 * **[Components]** All Astro components use kebab-case for file names and follow strict TypeScript typing. | Ensures code consistency and type safety.
