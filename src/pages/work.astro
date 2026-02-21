@@ -1,5 +1,9 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { getEntry } from 'astro:content';
+
+const work = await getEntry('work', 'work');
+const { Content } = await work.render();
 ---
 
 <PageLayout
@@ -12,63 +16,47 @@ import PageLayout from '../layouts/PageLayout.astro';
 
     <!-- Work Experience Section -->
     <section class="max-w-2xl">
-      <div class="prose prose-lg max-w-none">
-        <p class="text-lg leading-relaxed mb-8 text-secondary">
-          <a href="/contact" class="hover:underline text-link">Contact me</a> if you want to know more.
-        </p>
-
-        <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8 text-primary">Product @Uber (New York & San Francisco)</h2>
-          <div class="space-y-4 text-lg text-secondary">
-            <p><strong>Wait & Save: Get a discount by waiting more</strong> - 0 to 1, expanded in 35+ countries - now the #1 largest and most successful product in the US after UberX.</p>
-            <p><strong>Priority: Pay more to get a car faster</strong> - Scaled to 50+ countries, doubled trips growth speed - now the #2 premium product globally.</p>
-            <p><strong>UberX: Core company product</strong> - Transversal role to redesign the largest and most mature uber AI systems (pricing, matching, UX) around a unified vision to better fit user needs in price/time.</p>
-            <p><strong>Pricing Model (Non-Public): Sets Uber pricing baseline</strong> - Long-horizon, R&D-style system. Redesigned the engine to get it from one test country to global expansion. Now the key baseline foundation for Uber pricing stack.</p>
-          </div>
-        </div>
-
-        <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8 text-primary">Strategy & Operations @Uber (Paris)</h2>
-          <div class="space-y-4 text-lg text-secondary">
-            <p><strong>Competition:</strong> Led competitive strategy across multiple EU markets with 8-figure quarterly budgets; maintained #1 market share despite major competitor launches and acquisitions.</p>
-            <p><strong>Marketplace Efficiency:</strong> Led 360 operations (ops, analytics, comm, marketing, legal, policy, tax and support) for a company star market; served as the primary authority on business health and performance.</p>
-          </div>
-        </div>
-
-        <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8 text-primary">Venture Capital @MEVP (Beirut & Dubai)</h2>
-          <div class="space-y-4 text-lg text-secondary">
-            <p><strong>Company Details:</strong> MEVP is the largest independent venture capital firm in the MENA region by AUM size.</p>
-          </div>
-        </div>
-
-        <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8 text-primary">Strategy & Investments @BNP Paribas (San Francisco & Paris)</h2>
-          <div class="space-y-4 text-lg text-secondary">
-            <p><strong>Company Details:</strong> BNP Paribas is the largest bank in the Eurozone.</p>
-            <p><strong>Strategic Consulting:</strong> Strategic support of the local Californian bank (Bank of the West) acquired by the group.</p>
-            <p><strong>Corporate Venture Capital:</strong> Focused on fintechs.</p>
-            <p><strong>Corporate Accelerator:</strong> Built the bank's first US accelerator in a team of 2.</p>
-          </div>
-        </div>
-
-        <div class="mb-16">
-          <h2 class="text-2xl font-semibold mb-8 text-primary">Founder & Software Engineer @Billy (Paris)</h2>
-          <div class="space-y-4 text-lg text-secondary">
-            <p><strong>Tech Stack:</strong> AngularJS, Bootstrap, Node.js, Express, MongoDB, Passport.js, Socket.io.</p>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="text-2xl font-semibold mb-8 text-primary">Others</h2>
-          <div class="space-y-4 text-lg text-secondary">
-            <p><strong>YouTube:</strong> Grew three channels to 180k+, 15k+, and 2k+ subscribers (>40M total views). Managed a team of 3 scriptwriters and 3 editors to produce 4 videos/week. Now advising content creators and growth strategy.</p>
-            <p><strong>City Councilor:</strong> Served my childhood town (Longpont sur Orge, France).</p>
-            <p><strong>Civic Tech:</strong> Former top writer of Medium's Government section (<a href="https://drive.google.com/drive/folders/1NwDriCu5_SupUEnB3GHi92BZaHF0pXoV?usp=drive_link" target="_blank" rel="noopener noreferrer" class="hover:underline text-link">articles link</a>). Released a full study on the topic and invited by former French President François Hollande foundation, La France s'engage (<a href="https://drive.google.com/drive/u/1/folders/1NwDriCu5_SupUEnB3GHi92BZaHF0pXoV" target="_blank" rel="noopener noreferrer" class="hover:underline text-link">study link</a>) to discuss it. Youngest employee to speak on national TV (<a href="https://www.dailymotion.com/video/x6c0vm1" target="_blank" rel="noopener noreferrer" class="hover:underline text-link">BFMTV interview link</a>) on the initiative.</p>
-            <p><strong>Lecturer:</strong> 6h course on innovation and strategy for banks at Telecom SudParis & Ecole de Management.</p>
-          </div>
-        </div>
+      <p class="text-lg leading-relaxed mb-8 text-secondary">
+        <a href="/contact" class="hover:underline text-link">Contact me</a> if you want to know more.
+      </p>
+      <div class="work-content">
+        <Content />
       </div>
     </section>
   </div>
 </PageLayout>
+
+<style is:global>
+  /* Work content styling - matches original design */
+  .work-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: var(--color-text);
+  }
+
+  .work-content h2:not(:first-child) {
+    margin-top: 4rem;
+  }
+
+  .work-content p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .work-content strong {
+    color: var(--color-text) !important;
+    font-weight: 600;
+  }
+
+  .work-content a {
+    color: var(--color-link);
+  }
+
+  .work-content a:hover {
+    text-decoration: underline;
+  }
+</style>
