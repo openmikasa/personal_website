@@ -11,7 +11,7 @@ description: "Professional experience and work history"
 
 **UberX: Core company product** - Transversal role to redesign the largest and most mature uber AI systems (pricing, matching, UX) around a unified vision to better fit user needs in price/time.
 
-**Pricing Model (Non-Public): Sets Uber pricing baseline** - Long-horizon, R&D-style system. Redesigned the engine to get it from one test country to global expansion. Now the key baseline foundation for Uber pricing stack.
+**Pricing Model (Non-Public): Sets Uber pricing baseline** - Long-horizon, R&D-style system. Redesigned the engine to get it from one test country to global expansion. Now the key baseline foundation for every market.
 
 ## Strategy & Operations @Uber (Paris)
 
