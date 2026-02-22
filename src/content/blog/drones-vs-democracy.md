@@ -14,9 +14,7 @@ Mohammed bin Salman has often framed his "Saudi Vision 2030" not just as an econ
 
 Then I started thinking about drones.
 
-[Ukraine is producing 4 million drones per year](https://www.pravda.com.ua/eng/news/2025/11/12/8006961/). A single [$500 FPV drone](https://www.forcesnews.com/ukraine/ukraine-reveals-financial-cost-war-10m-russian-heli-taken-out-500-drone) destroyed a Russian helicopter worth $10 million.
-
-The Pentagon recently presented [Swarm Forge](https://interestingengineering.com/military/pentagon-operator-three-targets-drone-swarm): a single operator striking three targets simultaneously with three attack drones. [L3Harris is developing systems](https://www.defenseone.com/technology/2025/02/l3-unveils-new-low-bandwidth-high-autonomy-drone-swam-tech/402859/) where one human monitors swarms of autonomous weapons. The ratio is shifting. From 1:1 to 1:10 to 1:100.
+[Ukraine is producing 4 million drones per year](https://www.pravda.com.ua/eng/news/2025/11/12/8006961/). A single [$500 FPV drone](https://www.forcesnews.com/ukraine/ukraine-reveals-financial-cost-war-10m-russian-heli-taken-out-500-drone) destroyed a Russian helicopter worth $10 million. The Pentagon recently presented [Swarm Forge](https://interestingengineering.com/military/pentagon-operator-three-targets-drone-swarm): a single operator striking three targets simultaneously with three attack drones. [L3Harris is developing systems](https://www.defenseone.com/technology/2025/02/l3-unveils-new-low-bandwidth-high-autonomy-drone-swam-tech/402859/) where one human monitors swarms of autonomous weapons. The ratio is shifting. From 1:1 to 1:10 to 1:100.
 
 The math that made democracy possible was straightforward: 1000 armed citizens could overwhelm 100 soldiers. But what happens when 100 operators deploy 10k, 10m, 100m autonomous drones? For the first time in the history of humanity, the majority will eventually loose.
 
