@@ -17,7 +17,7 @@ description: "Professional experience and work history"
 
 **Competition:** Led competitive strategy across multiple EU markets with 8-figure quarterly budgets; maintained #1 market share despite major competitor launches and acquisitions.
 
-**Marketplace Efficiency:** Led 360 operations (ops, analytics, comm, marketing, legal, policy, tax and support) for a company star market; served as the primary authority on business health and performance.
+**Marketplace Efficiency:** Led 360 operations (ops, analytics, comm, marketing, legal, policy, tax and support) for a company star market; served as the primary IC authority on business health and performance.
 
 ## Venture Capital @MEVP (Beirut & Dubai)
 
