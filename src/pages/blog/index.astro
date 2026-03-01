@@ -41,21 +41,23 @@ const blogPosts = allPosts
       <!-- Success Message (hidden by default, shown via JS when ?subscribed=true) -->
       <div id="subscription-success" class="hidden max-w-md p-4 rounded-lg bg-[var(--color-hover)] border border-default">
         <p class="text-sm text-primary font-medium">
-          Thanks for subscribing! Please check your inbox and confirm your subscription.
+          Thanks for subscribing! You'll receive new posts directly in your inbox.
         </p>
       </div>
 
-      <!-- Email Subscription Form -->
+      <!-- Email Subscription Form (Kit/ConvertKit) -->
       <form
         id="subscription-form"
-        action="https://buttondown.email/api/emails/embed-subscribe/ramyg"
+        action="https://app.convertkit.com/forms/7f83354472/subscriptions"
         method="post"
+        data-sv-form="7f83354472"
+        data-uid="7f83354472"
+        data-options='{"settings":{"after_subscribe":{"action":"redirect","redirect_url":"https://ramyg.vercel.app/blog?subscribed=true"}}}'
         class="flex gap-2 max-w-md"
       >
-        <input type="hidden" name="redirect" value="https://ramyg.vercel.app/blog?subscribed=true" />
         <input
           type="email"
-          name="email"
+          name="email_address"
           placeholder="you@example.com"
           required
           class="flex-1 px-4 py-2 border rounded-lg focus:outline-none form-input text-sm"
