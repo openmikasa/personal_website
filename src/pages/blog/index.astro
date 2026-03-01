@@ -50,27 +50,32 @@ const blogPosts = allPosts
         id="subscription-form"
         action="https://app.kit.com/forms/9146732/subscriptions"
         method="post"
+        class="seva-form formkit-form"
         data-sv-form="9146732"
         data-uid="7f83354472"
         data-format="inline"
         data-version="5"
         data-options='{"settings":{"after_subscribe":{"action":"redirect","redirect_url":"https://ramyg.vercel.app/blog?subscribed=true"}}}'
-        class="seva-form formkit-form flex gap-2 max-w-md"
       >
-        <input
-          type="email"
-          name="email_address"
-          placeholder="you@example.com"
-          required
-          class="formkit-input flex-1 px-4 py-2 border rounded-lg focus:outline-none form-input text-sm"
-        />
-        <button
-          type="submit"
-          data-element="submit"
-          class="formkit-submit px-6 py-2 text-white rounded-lg font-medium font-mono text-sm transition-all duration-200 bg-[var(--color-accent)] shadow-[var(--shadow-sm)] hover:bg-[var(--color-text)] hover:shadow-[var(--shadow-md)]"
-        >
-          Subscribe via email
-        </button>
+        <div data-style="clean">
+          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+          <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+            <div class="formkit-field">
+              <input
+                class="formkit-input"
+                name="email_address"
+                aria-label="Email Address"
+                placeholder="you@example.com"
+                required
+                type="email"
+              />
+            </div>
+            <button data-element="submit" class="formkit-submit">
+              <div class="formkit-spinner"><div></div><div></div><div></div></div>
+              <span>Subscribe via email</span>
+            </button>
+          </div>
+        </div>
       </form>
     </div>
 
@@ -138,5 +143,80 @@ const blogPosts = allPosts
   .blog-list input,
   .blog-list button {
     text-transform: none !important;
+  }
+
+  /* Kit form custom styling */
+  .formkit-form[data-uid="7f83354472"] {
+    max-width: 28rem;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-fields {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-field {
+    flex: 1;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-submit {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 0;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-submit:hover {
+    background-color: var(--color-text);
+    box-shadow: var(--shadow-md);
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-spinner {
+    display: none;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-alert {
+    display: none;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-alert:not(:empty) {
+    display: block;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-alert-error {
+    background: #fde8e2;
+    border: 1px solid #f2643b;
+    color: #ea4110;
+  }
+
+  .formkit-form[data-uid="7f83354472"] .formkit-powered-by-convertkit-container {
+    display: none;
   }
 </style>
