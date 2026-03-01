@@ -38,12 +38,21 @@ const blogPosts = allPosts
         Subscribe via RSS
       </a>
 
+      <!-- Success Message (hidden by default, shown via JS when ?subscribed=true) -->
+      <div id="subscription-success" class="hidden max-w-md p-4 rounded-lg bg-[var(--color-hover)] border border-default">
+        <p class="text-sm text-primary font-medium">
+          Thanks for subscribing! Please check your inbox and confirm your subscription.
+        </p>
+      </div>
+
       <!-- Email Subscription Form -->
       <form
+        id="subscription-form"
         action="https://buttondown.email/api/emails/embed-subscribe/ramyg"
         method="post"
         class="flex gap-2 max-w-md"
       >
+        <input type="hidden" name="redirect" value="https://ramyg.vercel.app/blog?subscribed=true" />
         <input
           type="email"
           name="email"
@@ -102,6 +111,17 @@ const blogPosts = allPosts
     </section>
   </div>
 </PageLayout>
+
+<script>
+  // Check if user just subscribed and toggle visibility
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('subscribed') === 'true') {
+    const form = document.getElementById('subscription-form');
+    const success = document.getElementById('subscription-success');
+    if (form) form.classList.add('hidden');
+    if (success) success.classList.remove('hidden');
+  }
+</script>
 
 <style is:global>
   /* Override lowercase for blog list titles and form */
