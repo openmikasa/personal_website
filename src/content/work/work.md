@@ -5,19 +5,19 @@ description: "Professional experience and work history"
 
 ## Product @Uber (New York & San Francisco)
 
-**Wait & Save: Get a discount by waiting more** - MVP to expansion in 35+ countries and #1 largest product in the US after UberX.
+**Wait & Save: Get a discount by waiting more** - MVP to expansion in 35+ countries - grew it to become the #1 largest product in the US after UberX.
 
-**Priority: Pay more to get a car faster** - Scaled to 50+ countries, doubled trips growth speed to #1 largest premium product globally.
+**Priority: Pay more to get a car faster** - MVP redesign to expansion in 50+ countries - grew it to become the #1 largest premium product globally.
 
 **UberX: Core company product** - Transversal role to redesign the largest and most mature uber AI systems (pricing, matching, UX) around a unified vision to better fit user needs in price/time.
 
-**Pricing Model (Non-Public): Sets Uber pricing baseline** - Long-horizon, R&D-style system. MVP redesign to move from one test region to global expansion, now key baseline foundation for every market.
+**Pricing Model (Non-Public): Sets Uber pricing baseline** - Long-horizon, R&D-style system. Redesigned the MVP to get it from one test country to global expansion. Now the key baseline foundation for every market globally.
 
 ## Strategy & Operations @Uber (Paris)
 
 **Competition:** Led competitive strategy across multiple EU markets with 8-figure quarterly budgets; #1 in market share despite 2 major competitor launches and acquisitions.
 
-**Marketplace Efficiency:** Led 360 operations (ops, analytics, comm, marketing, legal, policy, tax and support) for a company star market;  served as the primary IC authority on business health and performance.
+**Marketplace Efficiency:** Led 360 operations (ops, analytics, comm, marketing, legal, policy, tax, support) for a company star country.
 
 ## Venture Capital @MEVP (Beirut & Dubai)
 
