@@ -5,6 +5,8 @@ description: "Professional experience and work history"
 
 ## Product @Uber (New York & San Francisco)
 
+My products went from 0 to >10% of Uber global trip share.
+
 **Wait & Save: Get a discount by waiting more** - MVP to expansion in 35+ countries - grew it to become the #1 largest product in the US after UberX.
 
 **Priority: Pay more to get a car faster** - MVP redesign to expansion in 50+ countries - grew it to become the #1 largest premium product globally.
