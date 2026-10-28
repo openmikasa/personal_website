@@ -35,16 +35,12 @@ My products went from 0 to >10% of Uber global trip share.
 
 **Corporate Accelerator:** Built the bank's first US accelerator in a team of 2.
 
-## Founder & Software Engineer @Billy (Paris)
-
-**Tech Stack:** AngularJS, Bootstrap, Node.js, Express, MongoDB, Passport.js, Socket.io.
-
 ## Others
 
 **YouTube:** Grew 3 channels (180k, 30k and 3k subscribers, >40M views) leading a team of scriptwriters and video editors. Now advising content creators and growth strategy.
 
-**City Councilor:** Served my childhood town (Longpont sur Orge, France).
+**City Councilor:** My childhood town (Longpont sur Orge, France).
 
-**Civic Tech:** Former top writer of Medium's Government section ([articles link](https://drive.google.com/drive/folders/1NwDriCu5_SupUEnB3GHi92BZaHF0pXoV?usp=drive_link)). Released a full study on the topic and invited by former French President Francois Hollande foundation, La France s'engage ([study link](https://drive.google.com/drive/u/1/folders/1NwDriCu5_SupUEnB3GHi92BZaHF0pXoV)) to discuss it. Youngest employee to speak on national TV ([BFMTV interview link](https://www.dailymotion.com/video/x6c0vm1)) on the initiative.
+**Civic Tech:** Former top writer in Medium's Government section ([articles link](https://drive.google.com/drive/folders/1NwDriCu5_SupUEnB3GHi92BZaHF0pXoV?usp=drive_link)). Released a full study on the topic and invited by former French President Francois Hollande foundation, La France s'engage ([study link](https://drive.google.com/drive/u/1/folders/1NwDriCu5_SupUEnB3GHi92BZaHF0pXoV)) to discuss it. Youngest employee to speak on national TV ([BFMTV interview link](https://www.dailymotion.com/video/x6c0vm1)) on the initiative.
 
 **Lecturer:** Former lecturer on innovation and strategy for banks at Telecom SudParis & Ecole de Management.
